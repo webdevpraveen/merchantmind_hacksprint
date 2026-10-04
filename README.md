@@ -1,4 +1,4 @@
-<![CDATA[<div align="center">
+<div align="center">
 
 # MerchantMind
 
@@ -31,7 +31,6 @@ _Turn fragmented business data into evidence-backed decisions and measurable act
 - [Technology Stack](#technology-stack)
 - [Project Structure](#project-structure)
 - [Demo Data Architecture](#demo-data-architecture)
-- [Getting Started](#getting-started)
 - [Recommended Judge Demo Flow](#-recommended-judge-demo-flow)
 - [Why MerchantMind?](#why-merchantmind)
 - [Trust, Transparency & Guardrails](#trust-transparency--guardrails)
@@ -732,8 +731,10 @@ The service abstraction architecture means this frontend is not throwaway demo c
 
 ## Team AARAMBH CODERS
 
-**Praveen Kumar Singh** — [pr4veensingh@proton.me](mailto:pr4veensingh@proton.me)  
-**Ankita Mishra** — [ankitadotdev@gmail.com](mailto:ankitadotdev@gmail.com)
+**Praveen Kumar Singh**  [webdevpraveen](https://github.com/webdevpraveen)
+
+**Ankita Mishra** [ankitadotdev](https://github.com/ankitadotdev)
+
 
 ---
 
@@ -742,4 +743,4 @@ The service abstraction architecture means this frontend is not throwaway demo c
 _Built for the merchant who deserves to know what's happening in their business — and what to do about it._
 
 </div>
-]]>
+
