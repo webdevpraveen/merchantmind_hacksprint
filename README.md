@@ -12,8 +12,9 @@ _An intelligent financial operating system for merchants that continuously under
 [![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4.3.3-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
 [![Status: Hackathon Prototype](https://img.shields.io/badge/Status-Hackathon_Prototype-10B981?style=flat-square)](https://github.com/webdevpraveen/merchantmind_hacksprint)
 [![Track: FinTech & Smart Commerce](https://img.shields.io/badge/Track-FinTech_%26_Smart_Commerce-6366F1?style=flat-square)](https://github.com/webdevpraveen/merchantmind_hacksprint)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-merchantmindhacksprint.vercel.app-000?style=flat-square&logo=vercel)](https://merchantmindhacksprint.vercel.app)
 
-[What is MerchantMind?](#what-is-merchantmind) • [The Problem](#the-problem) • [The Solution](#the-solution) • [Flagship Demo](#flagship-demo-scenario--rajesh-mobile) • [Architecture](#architecture) • [Judge Demo Flow](#recommended-judge-demo-flow) • [FAQ](#faq)
+[What is MerchantMind?](#what-is-merchantmind) • [The Problem](#the-problem) • [The Solution](#the-solution) • [Flagship Demo](#flagship-demo-scenario--rajesh-mobile) • [Architecture](#architecture) • [Pitch Deck](#official-hacksprint-presentation-deck) • [Judge Demo Flow](#recommended-judge-demo-flow) • [FAQ](#faq)
 
 </div>
 
@@ -538,6 +539,36 @@ The `TopNavbar` includes a scenario manager allowing evaluators to swap between 
 
 ---
 
+## Official HackSprint Presentation Deck
+
+Comprehensive pitch deck presented at **HackSprint 24-Hour Hackathon** (Manipal Academy of Higher Education, MAHE):
+
+<div align="center">
+
+### Slide 1: HackSprint Title & Team Introduction
+![Slide 1 - HackSprint Title](src/assets/ppt-image/1.jpg)
+
+### Slide 2: Problem Statement & Solution Architecture
+![Slide 2 - Solution Overview](src/assets/ppt-image/2.jpg)
+
+### Slide 3: Tech Stack & System Architecture
+![Slide 3 - Tech Stack and Architecture](src/assets/ppt-image/3.jpg)
+
+### Slide 4: Data Processing Pipeline & Scalability
+![Slide 4 - Data Processing Pipeline](src/assets/ppt-image/4.jpg)
+
+### Slide 5: Canonical Data Flow & Closed-Loop Engine
+![Slide 5 - Canonical Data Flow Diagram](src/assets/ppt-image/5.jpg)
+
+### Slide 6: Product UI Walkthrough & Verification Proof
+![Slide 6 - Product Screenshots and Telemetry](src/assets/ppt-image/6.jpg)
+
+### Slide 7: Real-World Integrations, Roadmap & Live Links
+![Slide 7 - Ecosystem Integrations and Live Demo](src/assets/ppt-image/7.jpg)
+
+</div>
+
+---
 
 ## Repository Structure
 
@@ -552,6 +583,7 @@ merchantmind_hacksprint/
 ├── src/
 │   ├── assets/
 │   │   ├── hero.png                   # High-resolution platform preview screenshot
+│   │   ├── ppt-image/                 # Official HackSprint pitch deck presentation slides (1.jpg - 7.jpg)
 │   │   ├── react.svg                  # React ecosystem vector
 │   │   └── vite.svg                   # Vite toolchain vector
 │   ├── components/
