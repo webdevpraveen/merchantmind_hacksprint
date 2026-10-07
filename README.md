@@ -12,8 +12,9 @@ _An intelligent financial operating system for merchants that continuously under
 [![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4.3.3-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
 [![Status: Hackathon Prototype](https://img.shields.io/badge/Status-Hackathon_Prototype-10B981?style=flat-square)](https://github.com/webdevpraveen/merchantmind_hacksprint)
 [![Track: FinTech & Smart Commerce](https://img.shields.io/badge/Track-FinTech_%26_Smart_Commerce-6366F1?style=flat-square)](https://github.com/webdevpraveen/merchantmind_hacksprint)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-merchantmindhacksprint.vercel.app-000?style=flat-square&logo=vercel)](https://merchantmindhacksprint.vercel.app)
 
-[What is MerchantMind?](#what-is-merchantmind) • [The Problem](#the-problem) • [The Solution](#the-solution) • [Flagship Demo](#flagship-demo-scenario--rajesh-mobile) • [Architecture](#architecture) • [Judge Demo Flow](#recommended-judge-demo-flow) • [FAQ](#faq)
+[What is MerchantMind?](#what-is-merchantmind) • [The Problem](#the-problem) • [The Solution](#the-solution) • [Flagship Demo](#flagship-demo-scenario--rajesh-mobile) • [Architecture](#architecture) • [Pitch Deck](#official-hacksprint-presentation-deck) • [Judge Demo Flow](#recommended-judge-demo-flow) • [FAQ](#faq)
 
 </div>
 
@@ -538,86 +539,34 @@ The `TopNavbar` includes a scenario manager allowing evaluators to swap between 
 
 ---
 
+## Official HackSprint Presentation Deck
 
-## Repository Structure
+Comprehensive pitch deck presented at **HackSprint 24-Hour Hackathon** (Manipal Academy of Higher Education, MAHE):
 
-```
-merchantmind_hacksprint/
-├── docs/
-│   ├── MASTER_BLUEPRINT.md            # Comprehensive architecture & design document
-│   └── PROJECT_STATE.md               # Implementation progress & verification tracker
-├── public/
-│   ├── favicon.svg                    # Brand favicon
-│   └── icons.svg                      # Vector sprite definitions
-├── src/
-│   ├── assets/
-│   │   ├── hero.png                   # High-resolution platform preview screenshot
-│   │   ├── react.svg                  # React ecosystem vector
-│   │   └── vite.svg                   # Vite toolchain vector
-│   ├── components/
-│   │   ├── connections/
-│   │   │   ├── ConnectionDetailsModal.tsx     # Connection inspect & config modal
-│   │   │   └── LiveSyncSimulationModal.tsx    # 7-stage live sync animation & telemetry
-│   │   ├── intelligence/
-│   │   │   ├── MerchantActivityTimeline.tsx   # Live activity timeline feed
-│   │   │   └── SignalActionFlowCard.tsx       # Decision card linking signal to action
-│   │   ├── showcase/
-│   │   │   └── ProductFaqGrid.tsx             # 12-question technical FAQ grid
-│   │   └── ui/
-│   │       ├── Badge.tsx                      # FinTech design system status badge
-│   │       ├── Button.tsx                     # Polymorphic button with loading states
-│   │       ├── Card.tsx                       # Structural container card
-│   │       ├── Drawer.tsx                     # Slide-over drawer container
-│   │       └── Modal.tsx                      # Centered dialog backdrop & container
-│   ├── context/
-│   │   └── MerchantContext.tsx        # Centralized application state & service provider
-│   ├── layouts/
-│   │   ├── AppShell.tsx               # World B merchant app shell layout
-│   │   ├── AppSidebar.tsx             # 5-section collapsible sidebar navigation
-│   │   ├── DemoModeBanner.tsx          # Sandbox disclaimer banner & reset trigger
-│   │   ├── EvidenceDrawer.tsx         # Slide-over calculation breakdown & source proof
-│   │   ├── GuidedTourModal.tsx        # 10-step anchored judge walkthrough
-│   │   ├── PublicShell.tsx            # World A public showcase shell layout
-│   │   └── TopNavbar.tsx              # World switcher, scenario selector & demo controller
-│   ├── mock/
-│   │   └── demoData.ts                # 1,195 lines of canonical deterministic scenario records
-│   ├── services/
-│   │   ├── MockMerchantService.ts     # In-memory implementation of IMerchantService
-│   │   └── types.ts                   # IMerchantService interface (22 typed methods)
-│   ├── types/
-│   │   └── index.ts                   # Core domain data contracts & schemas
-│   ├── utils/
-│   │   ├── cn.ts                      # Tailwind class variance utility (clsx + twMerge)
-│   │   └── formatters.ts              # INR currency (₹) and Indian date formatting
-│   ├── views/
-│   │   ├── ActionCenterView.tsx       # Approval queue & execution simulation
-│   │   ├── ArchitectureView.tsx       # Interactive 10-stage pipeline topology
-│   │   ├── AuditTrailView.tsx         # Immutable event & decision audit ledger
-│   │   ├── CashflowView.tsx           # Daily cash trajectory & cliff radar
-│   │   ├── CommandCenterView.tsx      # Executive merchant dashboard & squeeze alert
-│   │   ├── ConnectionsView.tsx        # Data sources & live sync simulation
-│   │   ├── CustomersView.tsx          # RFM segments & credit risk profiles
-│   │   ├── FinancialHealthView.tsx    # P&L indicators, gross margin, burn rate
-│   │   ├── HowItWorksView.tsx         # Narrative lifecycle walkthrough
-│   │   ├── IngestionView.tsx          # Ingestion telemetry & quality quarantine
-│   │   ├── InventoryView.tsx          # SKU velocity & dead stock recovery
-│   │   ├── KhataReceivablesView.tsx   # Ageing buckets & customer credit ledgers
-│   │   ├── OpportunitiesView.tsx      # Multi-criteria ranked financial opportunities
-│   │   ├── PaytmEcosystemView.tsx     # Paytm integration surfaces & schemas
-│   │   ├── PublicShowcaseView.tsx     # World A landing & 5 core judge questions
-│   │   ├── SettingsView.tsx           # Merchant business configuration & GSTIN
-│   │   ├── SignalsView.tsx            # Deterministic anomaly detection radar
-│   │   ├── SupplierPayablesView.tsx   # Supplier bills & payment schedules
-│   │   └── TransactionsView.tsx       # Unified multi-channel transaction ledger
-│   ├── App.css                        # Application-wide component animations
-│   ├── App.tsx                        # Root router & view coordinator
-│   ├── index.css                      # Tailwind CSS 4 tokens & typography
-│   └── main.tsx                       # React 19 application entry point
-├── package.json                       # Dependencies & build scripts
-├── tsconfig.json                      # TypeScript configuration
-├── vercel.json                        # Vercel SPA rewrite deployment configuration
-└── vite.config.ts                     # Vite bundler configuration
-```
+<div align="center">
+
+### Slide 1: HackSprint Title & Team Introduction
+![Slide 1 - HackSprint Title](src/assets/ppt-image/1.jpg)
+
+### Slide 2: Problem Statement & Solution Architecture
+![Slide 2 - Solution Overview](src/assets/ppt-image/2.jpg)
+
+### Slide 3: Tech Stack & System Architecture
+![Slide 3 - Tech Stack and Architecture](src/assets/ppt-image/3.jpg)
+
+### Slide 4: Data Processing Pipeline & Scalability
+![Slide 4 - Data Processing Pipeline](src/assets/ppt-image/4.jpg)
+
+### Slide 5: Canonical Data Flow & Closed-Loop Engine
+![Slide 5 - Canonical Data Flow Diagram](src/assets/ppt-image/5.jpg)
+
+### Slide 6: Product UI Walkthrough & Verification Proof
+![Slide 6 - Product Screenshots and Telemetry](src/assets/ppt-image/6.jpg)
+
+### Slide 7: Real-World Integrations, Roadmap & Live Links
+![Slide 7 - Ecosystem Integrations and Live Demo](src/assets/ppt-image/7.jpg)
+
+</div>
 
 ---
 
