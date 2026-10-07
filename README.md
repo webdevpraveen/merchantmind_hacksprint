@@ -2,745 +2,804 @@
 
 # MerchantMind
 
-### Intelligent Financial Operating System for Indian Retail Merchants
+### Merchant Intelligence & Decision Platform
 
-_Turn fragmented business data into evidence-backed decisions and measurable actions — not more charts._
+_An intelligent financial operating system for merchants that continuously understands their business, detects financial risks and opportunities, explains the evidence behind them, recommends quantified actions, keeps the merchant in control, and measures outcomes._
 
-[![Built with React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?style=flat-square&logo=typescript)](https://typescriptlang.org)
-[![Vite](https://img.shields.io/badge/Vite-8.3-646CFF?style=flat-square&logo=vite)](https://vite.dev)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
-[![Deploy Status](https://img.shields.io/badge/Vercel-Ready-000?style=flat-square&logo=vercel)](https://vercel.com)
+[![React 19](https://img.shields.io/badge/React-19.2.8-61DAFB?style=flat-square&logo=react)](https://react.dev)
+[![TypeScript 6](https://img.shields.io/badge/TypeScript-6.0.2-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![Vite 8](https://img.shields.io/badge/Vite-8.3.0-646CFF?style=flat-square&logo=vite)](https://vite.dev)
+[![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4.3.3-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
+[![Status: Hackathon Prototype](https://img.shields.io/badge/Status-Hackathon_Prototype-10B981?style=flat-square)](https://github.com/webdevpraveen/merchantmind_hacksprint)
+[![Track: FinTech & Smart Commerce](https://img.shields.io/badge/Track-FinTech_%26_Smart_Commerce-6366F1?style=flat-square)](https://github.com/webdevpraveen/merchantmind_hacksprint)
+
+[What is MerchantMind?](#what-is-merchantmind) • [The Problem](#the-problem) • [The Solution](#the-solution) • [Flagship Demo](#flagship-demo-scenario--rajesh-mobile) • [Architecture](#architecture) • [Judge Demo Flow](#recommended-judge-demo-flow) • [FAQ](#faq)
 
 </div>
-
----
-
-## Table of Contents
-
-- [What is MerchantMind?](#what-is-merchantmind)
-- [The Problem](#the-problem)
-- [The Solution — Intelligence Lifecycle](#the-solution--intelligence-lifecycle)
-- [Flagship Demo Scenario](#flagship-demo-scenario)
-- [Product Architecture — Two Worlds](#product-architecture--two-worlds)
-- [The Intelligence Story](#the-intelligence-story)
-- [Evidence-First Design](#evidence-first-design)
-- [Action Center & Closed-Loop Execution](#action-center--closed-loop-execution)
-- [Paytm Ecosystem Integration](#paytm-ecosystem-integration)
-- [System Architecture](#system-architecture)
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Demo Data Architecture](#demo-data-architecture)
-- [Recommended Judge Demo Flow](#-recommended-judge-demo-flow)
-- [Why MerchantMind?](#why-merchantmind)
-- [Trust, Transparency & Guardrails](#trust-transparency--guardrails)
-- [Current Status](#current-status)
-- [Roadmap](#roadmap)
-- [FAQ](#faq)
-- [Team](#team)
 
 ---
 
 ## What is MerchantMind?
 
-MerchantMind is **not** a dashboard, a bookkeeping app, or an AI chatbot.
+MerchantMind is **not** a passive reporting dashboard, **not** a basic accounting app, **not** a POS terminal, and **not** a generic LLM chatbot with database access.
 
-It is a **Financial Operating System** — an intelligent decision platform that continuously monitors a merchant's financial position across payments, receivables, inventory, and supplier obligations, then:
+It is an **Intelligent Financial Operating System** designed for Indian retail and small business merchants. It continuously monitors a merchant’s operational cash, customer credit (Khata), supplier liabilities, inventory turnover, and digital payment streams to bridge the gap between raw financial telemetry and decisive operational action.
 
-1. **Detects** emerging risks and opportunities before they become crises
-2. **Explains** why each issue matters with verifiable evidence
-3. **Recommends** ranked, actionable interventions with trade-off analysis
-4. **Executes** approved actions through integrated payment and communication channels
-5. **Measures** the financial outcome of every action taken
+### The Autonomous Intelligence Lifecycle
 
-The core thesis: **Indian retail merchants don't need more charts. They need to know _what is happening_, _why_, _what to do_, _how much they can recover_, and _what evidence proves it_.**
+$$\text{CONNECT} \longrightarrow \text{UNDERSTAND} \longrightarrow \text{MONITOR} \longrightarrow \text{DETECT} \longrightarrow \text{EXPLAIN} \longrightarrow \text{RECOMMEND} \longrightarrow \text{APPROVE} \longrightarrow \text{ACT} \longrightarrow \text{MEASURE}$$
+
+### The Closed-Loop Decision Engine
+
+$$\text{BUSINESS DATA} \longrightarrow \text{SIGNAL} \longrightarrow \text{OPPORTUNITY} \longrightarrow \text{EVIDENCE} \longrightarrow \text{RECOMMENDATION} \longrightarrow \text{MERCHANT APPROVAL} \longrightarrow \text{ACTION} \longrightarrow \text{MEASURED OUTCOME}$$
+
+The platform operates on a single core thesis:
+
+> **Indian retail merchants do not need more charts. They need to know what is happening in their business, why it is happening, what to do about it, how much cash they can recover, and what verifiable evidence proves it.**
 
 ---
 
 ## The Problem
 
-Millions of Indian SMB and retail merchants operate with fragmented financial information scattered across:
+Millions of Indian SMB and retail merchants operate across fragmented, disconnected financial tools:
 
-| Data Silo | Reality |
-|---|---|
-| **Payment Systems** | Paytm QR, UPI, cash register — each in a separate app |
-| **Bank Accounts** | Statement PDFs downloaded monthly, if at all |
-| **Khata / Udhar** | Customer credit tracked in notebooks or basic apps |
-| **Supplier Bills** | Paper invoices filed in boxes, due dates in memory |
-| **Inventory** | Manual stock counts, zero velocity tracking |
-| **Accounting** | Tally or spreadsheets updated weekly at best |
-
-The result is a merchant who runs a ₹1.5L/month business blind — unable to answer fundamental questions until it's too late:
-
-> **"I have ₹40,607 in my account. My supplier bill of ₹45,000 is due Friday. Where do I find the remaining ₹4,393?"**
-
-Traditional dashboards would show a revenue chart and a pie graph. MerchantMind answers the question, proves why it's correct, shows exactly where to recover the money, and helps execute the recovery — all before Friday.
-
----
-
-## The Solution — Intelligence Lifecycle
-
-MerchantMind operates on a continuous 9-stage autonomous intelligence pipeline:
-
-```
-CONNECT → UNDERSTAND → MONITOR → DETECT → EXPLAIN → RECOMMEND → APPROVE → ACT → MEASURE
-```
-
-| Stage | What Happens |
-|---|---|
-| **Connect** | Ingest data from Paytm QR, bank feeds, POS, Tally, inventory scanners, WhatsApp |
-| **Understand** | Normalize raw transactions into a canonical financial model |
-| **Monitor** | Continuously track cash position, receivables ageing, inventory velocity, supplier obligations |
-| **Detect** | Identify signals — liquidity cliffs, overdue Khata, dead stock, margin leakage |
-| **Explain** | Attribute each signal to specific source records with deterministic calculations |
-| **Recommend** | Generate ranked actions with expected impact, effort, risk, and trade-offs |
-| **Approve** | Merchant reviews and approves actions with 2-step confirmation guardrails |
-| **Act** | Execute approved actions — send WhatsApp reminders, trigger clearance pricing, request supplier terms |
-| **Measure** | Track financial outcome — did overdue Khata get collected? Did the liquidity gap close? |
-
----
-
-## Flagship Demo Scenario
-
-> **Merchant:** Rajesh Kumar — _Rajesh Mobile & Accessories_  
-> **Location:** Shop #14, Raja Park Market, Jaipur, Rajasthan 302004  
-> **GSTIN:** `08AABCR1234M1Z5`  
-> **Category:** Consumer Electronics & Telecom (smartphones, accessories, repair)
-
-### The Financial Story
-
-Rajesh's business is growing — **₹1,42,800 monthly revenue** with +8.4% month-over-month growth and a 24.5% gross margin. But growth masks an acute cash squeeze:
-
-```
-  Available Operating Cash               ₹40,607    (SBI Current A/c ending 4910)
-- Upcoming Supplier Obligation           ₹45,000    (Sharma Telecom, BILL-SUP-201, due in 5 days)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-= Immediate Liquidity Gap                -₹4,393    ⚠️ CRITICAL
-```
-
-Rajesh doesn't know this yet. His Khata notebook shows two customers owe him money, but he hasn't connected that to his supplier deadline. His back shelf has phone cases nobody buys anymore, but he doesn't see them as trapped cash.
-
-**MerchantMind sees the full picture:**
-
-| Source | Amount | Status |
+| Data Silo | Current Reality | Practical Pain Point |
 |---|---|---|
-| Overdue Khata — Amit Verma (`INV-REC-101`) | ₹2,200 | 38 days overdue |
-| Overdue Khata — Neha Sharma (`INV-REC-103`) | ₹1,500 | 34 days overdue |
-| Dead Stock — iPhone 11 Cases (`SKU-CS-IP11`) | ₹6,000 | 47 days stagnant |
-| Dead Stock — Armband Pouches (`SKU-ARM-POUCH`) | ₹3,040 | 52 days stagnant |
-| Dead Stock — OTG Adapters (`SKU-OTG-MICRO`) | ₹1,620 | 58 days stagnant |
+| **Payment Telemetry** | Paytm QR, Soundbox, UPI terminals | Inflows scattered across settlement schedules, batch deductions, and transaction apps. |
+| **Bank Current Accounts** | NetBanking portals, monthly PDF statements | Balances are only viewed after end-of-day reconciliation; overdraft fees hit unexpectedly. |
+| **Customer Credit (Khata)** | Paper notebooks or stand-alone Khata apps | No automated link between customer credit latency and supplier invoice due dates. |
+| **Supplier Obligations** | Paper challans, WhatsApp PDFs, distributor bills | Due dates kept in memory; early-payment cash discounts are missed. |
+| **Inventory & Stock** | Physical shelf inspection, fragmented POS entries | Capital remains frozen in dead stock while high-velocity accessories stock out. |
+| **Accounting Systems** | Tally Prime or periodic spreadsheets | Post-mortem record-keeping updated days or weeks after financial events transpire. |
 
-**Recovery Path:**
+### The Real-World Dilemma
+
+A retail merchant running a ₹1.5L/month store routinely encounters this acute working capital cliff:
 
 ```
-  Recover overdue Khata                  ₹3,700     (WhatsApp UPI paylinks to 2 customers)
-+ Dead stock flash clearance             ₹7,800     (48-hour weekend sale on 3 obsolete SKUs)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-= Total Potential Recovery              ₹11,500
-- Current Liquidity Gap                 -₹4,393
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-= Projected Post-Recovery Surplus       +₹7,107    ✅ SAFE
+"I have ₹40,607 in my current account today.
+My supplier bill of ₹45,000 from Sharma Telecom is due on Friday.
+I have a net liquidity deficit of -₹4,393.
+Where do I recover this money before Friday without taking an emergency 36% APR loan?"
 ```
 
-Every single number above is deterministic, traceable to source records, and consistent across all 19 views in the application.
+Traditional dashboards show a historical revenue graph and an expense pie chart. **MerchantMind detects the cliff 5 days in advance, proves the exact ₹4,393 gap from primary records, pinpoints ₹3,700 in overdue Khata and ₹10,660 in dead stock, and pre-formulates 1-click executable actions to recover ₹11,500 before Friday.**
 
 ---
 
-## Product Architecture — Two Worlds
+## The Solution
 
-MerchantMind is structured as two complementary product experiences:
+MerchantMind connects disparate business feeds into a normalized canonical model, running deterministic heuristic analyzers that convert passive data into closed-loop actions.
 
-### World A — Public Showcase
+```mermaid
+flowchart TD
+    subgraph S1["1. Connect & Ingest"]
+        A["Paytm QR / Soundbox"]
+        B["Bank Account Feeds"]
+        C["Retail POS / Ledger"]
+        D["Tally Prime / Khata"]
+    end
 
-The **judge and product storytelling layer**. A visitor lands here first and understands the product without needing a developer to explain it.
+    subgraph S2["2. Pipeline Sanitization"]
+        E["Ingestion & SHA-256 Dedup"]
+        F["Quality Quarantine Layer"]
+        G["Schema Normalization"]
+        H["Canonical Financial Model"]
+    end
 
-| Section | Purpose |
-|---|---|
-| **Hero & Value Proposition** | 30-second elevator pitch with live capability flow |
-| **The Merchant Problem** | Visual explanation of fragmented merchant data reality |
-| **The MerchantMind Solution** | 9-stage intelligence lifecycle with interactive cards |
-| **How It Works** | Step-by-step product walkthrough with animated state changes |
-| **Enterprise Architecture** | Interactive data pipeline and canonical model diagram |
-| **Paytm Ecosystem Blueprint** | Sponsor-aligned integration surfaces with honest demo disclosures |
-| **5 Core Questions for Judges** | _What is it? Who is it for? What problem? How does it work? Why different?_ |
-| **Interactive Guided Tour** | One-click launch into the merchant experience |
+    subgraph S3["3. Deterministic Intelligence"]
+        I["Rolling Cashflow & Cliff Radar"]
+        J["Signal Engine (Anomalies)"]
+        K["Opportunity Engine (Scoring)"]
+        L["Evidence Drawer (Formulas & Bills)"]
+    end
 
-### World B — Merchant App
+    subgraph S4["4. Human Control & Closed Loop"]
+        M["Ranked Action Proposals"]
+        N["Merchant 2-Step Approval Gate"]
+        O["Simulated Execution Engine"]
+        P["Closed-Loop Outcome Verification"]
+    end
 
-The **operational financial intelligence interface**. This is the actual product Rajesh would use daily.
-
-| Screen | What It Does | What the Merchant Learns | What Action Follows |
-|---|---|---|---|
-| **Command Center** | Executive overview with top KPIs and priority alerts | "I have a ₹4,393 cash gap in 5 days" | Inspect evidence, view recovery options |
-| **Financial Health** | P&L indicators, margins, burn rate, runway analysis | "My 24.5% margin is healthy but my cash runway is only 11 days" | Monitor trend direction |
-| **Cashflow & Cliff** | Daily projection curve with cliff detection | "My balance drops to ₹5,607 on Oct 9 when Sharma's bill hits" | Trigger pre-emptive recovery |
-| **Transactions** | Unified ledger across Paytm, UPI, cash, netbanking | "My last 5 transactions and their settlement status" | Verify individual records |
-| **Khata / Receivables** | Ageing buckets (0-7, 8-30, 31-60, 61-90, 90+) with risk scoring | "₹3,700 is trapped in 2 customers past 30 days" | Send WhatsApp payment reminder |
-| **Supplier Payables** | Invoice schedules, cliff flags, early-pay discount alerts | "₹45,000 due to Sharma Telecom in 5 days, 1.5% discount available" | Negotiate, reschedule, or prioritize |
-| **Inventory Velocity** | SKU turnover, dead stock detection, capital lockup analysis | "₹10,660 is locked in 3 items with zero sales in 47+ days" | Launch clearance sale |
-| **Customers & Credit** | Segments (High-Value / Growing / At-Risk / Dormant), RFM metrics | "Amit Verma's risk score is 78 — he's a chronic late payer" | Adjust credit limits |
-| **Signal Radar** | Deterministic anomaly and threshold alerts | "3 active signals: liquidity cliff, overdue Khata, dead stock" | Drill into any signal |
-| **Opportunity Center** | Categorized, ranked financial opportunities with impact tags | "5 open opportunities totaling ₹99,967 exposure" | Review evidence, approve actions |
-| **Action Center** | Approval queue with execution simulation and outcome measurement | "Action approved → Executing → Measured: deficit closed" | Close the loop |
-| **Connections & Paytm** | Integration hub showing 9 data sources with sync health | "Paytm QR is synced, Tally is connected, Khatabook is ready" | Trigger live sync simulation |
-| **Ingestion & Quarantine** | Pipeline telemetry, validation status, quarantined records | "22 of 24 CSV records validated, 2 quarantined for missing GSTIN" | Fix data quality issues |
-| **Audit Trail** | Immutable event timeline of signals, actions, and syncs | "Full history: signal detected → action approved → outcome measured" | Verify system integrity |
-| **How MerchantMind Works** | In-app step-by-step interactive guide | Product understanding without leaving the app | Self-onboarding |
-| **Enterprise Architecture** | Technical data pipeline and system diagram | Architecture comprehension for technical judges | Developer evaluation |
-| **Paytm Ecosystem Hub** | Detailed Paytm integration surface documentation | Integration depth and production readiness | Sponsor assessment |
-| **Business Profile** | Merchant settings, profile, and scenario management | Configuration and personalization | Scenario switching |
+    A --> E
+    B --> E
+    C --> E
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+    L --> M
+    M --> N
+    N --> O
+    O --> P
+```
 
 ---
 
-## The Intelligence Story
+## Why It Is Different
 
-MerchantMind distinguishes between six discrete concepts that most financial tools conflate:
-
-```
-DATA         Raw transaction records, invoices, bank entries
-     ↓
-SIGNAL       A deterministic anomaly or threshold breach detected from data
-     ↓
-OPPORTUNITY  A financially quantified situation requiring merchant attention
-     ↓
-EVIDENCE     Verifiable calculation breakdown linking opportunity to source records
-     ↓
-ACTION       A specific intervention with expected impact, effort, risk, and trade-offs
-     ↓
-OUTCOME      Measured financial result of an executed action
-```
-
-### Why This Matters
-
-Most tools stop at **DATA** (here's a chart) or **SIGNAL** (here's an alert). MerchantMind goes the full distance:
-
-- A **signal** like `SIG-LIQ-CLIFF` tells the merchant _something is wrong_
-- An **opportunity** like `opp_01` quantifies _how much money is at risk_ (₹45,000 exposure, ₹11,500 recoverable)
-- **Evidence** record `evi_01` proves the calculation: `₹40,607 - ₹45,000 = -₹4,393` with links to `BILL-SUP-201`, `INV-REC-101`, `INV-REC-103`
-- **Actions** `act_01`, `act_02`, `act_03` are three ranked interventions with trade-off analysis
-- **Outcome measurement** verifies: did the deficit actually close? (Answer: `-₹4,393 → +₹7,107`)
-
----
-
-## Evidence-First Design
-
-> **No black-box claims. Every recommendation is traceable to source records.**
-
-MerchantMind does not simply generate recommendations. Every important recommendation is auditable:
-
-| Evidence Component | Example |
-|---|---|
-| **What was detected** | "Deterministic cash deficit of ₹4,393 on Oct 9 when BILL-SUP-201 matures" |
-| **Why it matters** | "Defaulting costs ₹1,200 bank fee + vendor credit hold; emergency loan costs 36% APR" |
-| **Calculation breakdown** | `₹40,607 (operating cash) - ₹45,000 (BILL-SUP-201) = -₹4,393` |
-| **Source records** | BILL-SUP-201, SBI-OP-BAL, INV-REC-101, INV-REC-103 |
-| **Audit timeline** | Bill ingested Sep 9 → Liquidity warning Oct 1 → Signal generated Oct 4 |
-| **Risks & trade-offs** | "Delaying payment loses 1.5% discount (₹675). Khata recovery + clearance covers gap without borrowing." |
-
-The **Evidence Drawer** is accessible from any opportunity, signal, or action card — opening a slide-over panel with the full deterministic calculation tree, source invoice table, and audit trail.
-
----
-
-## Action Center & Closed-Loop Execution
-
-MerchantMind is not designed to stop at "here is a problem." It moves toward:
-
-```
-DETECT → DECIDE → ACT → MEASURE
-```
-
-### Action Lifecycle
-
-| Stage | Description |
-|---|---|
-| `DRAFT` | Action auto-generated by intelligence engine |
-| `AWAITING_APPROVAL` | Ready for merchant review with 2-step confirmation |
-| `APPROVED` | Merchant has authorized execution |
-| `EXECUTING (Simulated)` | Action steps running with progress logs |
-| `COMPLETED` | All steps finished |
-| `MEASURED` | Financial outcome verified against projection |
-
-### Current Demo Actions
-
-| # | Action | Type | Expected Recovery | Effort | Risk |
+| Dimension | Payment Dashboards | Accounting Software | BI Dashboards | Generic AI Chatbots | MerchantMind |
 |---|---|---|---|---|---|
-| 1 | Dispatch WhatsApp UPI paylinks to Amit & Neha | `SEND_REMINDER` | ₹3,700 | Low | Negligible |
-| 2 | 48-hour flash clearance on stagnant SKUs | `DISCOUNT_CLEARANCE` | ₹7,800 | Medium | Negligible |
-| 3 | Request 7-day split payment from Sharma Telecom | `RESCHEDULE_SUPPLIER` | ₹20,000 deferred | Low | Low |
-
-### Outcome Verification
-
-After simulated execution, the **Closed-Loop Outcome Panel** shows the transformation:
-
-```
-BEFORE:  -₹4,393 deficit    (₹40,607 cash vs ₹45,000 obligation)
-AFTER:   +₹7,107 surplus    (₹3,700 Khata recovered + ₹7,800 clearance cash)
-```
-
-> ⚠️ **Sandbox Disclosure:** Current action execution is a **deterministic demo simulation**. Production execution would connect to real WhatsApp Business API, Paytm payment flows, and supplier communication channels.
+| **Primary Focus** | Transaction visibility | Historical bookkeeping | Retrospective charts | Freeform text generation | Proactive financial decisions & actions |
+| **Core Question** | _"Did this UPI payment clear?"_ | _"What was my tax balance last month?"_ | _"What was revenue by week?"_ | _"How can I grow my retail store?"_ | _"What is at risk, why, how much is affected, and what action recovers it?"_ |
+| **Intelligence Model** | None | Static rules & debit/credit ledgers | Aggregations & chart visualizations | Probabilistic language completion | Deterministic mathematical reasoning |
+| **Explainability** | Raw payment receipts | Double-entry journals | Chart tooltips | Opaque LLM hallucinations | Verifiable calculation trees linked to source bills |
+| **Execution** | None | Manual journal adjustments | None | None (text suggestions only) | 1-click approved actions with execution progress |
+| **Human Guardrail** | N/A | Manual entry | N/A | Prompt-level instructions | Explicit 2-step confirmation sandbox |
+| **Outcome Tracking** | Settlement status | Reconciled balance | Visual trend change | None | Closed-loop delta measurement (+₹7,107 surplus) |
 
 ---
 
-## Paytm Ecosystem Integration
+## Core Capabilities
 
-Paytm is presented as a primary payment ecosystem partner with 6 integration surfaces:
+MerchantMind is structured into two synchronized environments: **World A (Public Product & Architecture Showcase)** and **World B (Merchant Operational Application)**.
 
-| Integration Surface | Description | Status |
-|---|---|---|
-| **Real-Time QR Inflow** | Continuous Paytm QR standee transaction ingestion | Demo Telemetry |
-| **Soundbox Voice Alerts** | Audio confirmation events feeding into cashflow ledger | Demo Telemetry |
-| **EDC Terminal Settlements** | Card + UPI terminal batch settlement reconciliation | Illustrative Flow |
-| **UPI Transaction Velocity** | Intraday payment frequency and average ticket analysis | Demo Telemetry |
-| **Merchant Telemetry** | Aggregated business health signals from payment patterns | Illustrative Flow |
-| **WhatsApp Payment Flows** | UPI paylink dispatch via Paytm-powered deep links | Connector Ready |
+### World A: Public Showcase & System Rigor
 
-### Live Sync Simulation
+*   **Public Showcase (`PublicShowcaseView`):** High-level product storytelling answering the 5 Core Questions for Judges (`WHAT IS IT?`, `WHO IS IT FOR?`, `WHAT PROBLEM DOES IT SOLVE?`, `HOW DOES IT WORK?`, `WHY IS IT DIFFERENT?`).
+*   **System Architecture (`ArchitectureView`):** Interactive visual topology detailing the 10-stage data pipeline, separating the deterministic financial core from optional conversational overlays.
+*   **Paytm Ecosystem Integration (`PaytmEcosystemView`):** Technical documentation of 6 integration surfaces (QR Soundbox, EDC Smart POS, All-in-One Gateway, Payouts, Merchant Lending, Business App).
+*   **Interactive Narrative Walkthrough (`HowItWorksView`):** Step-by-step walkthrough mapping real retail situations to system responses.
+*   **Product FAQ (`ProductFaqGrid`):** 12 straightforward technical answers addressing architecture, AI boundaries, and production readiness.
 
-The Connections screen includes a 7-stage sync simulation:
+### World B: Merchant Operational Application
 
-```
-CONNECTING → AUTHENTICATING → FETCHING → NORMALIZING → VALIDATING → RECONCILING → COMPLETE
-```
-
-Each stage shows real-time telemetry (records ingested, schemas validated, duplicates removed) with explicit demo mode indicators.
-
-### Important Disclosures
-
-- **Demo Telemetry** — All Paytm data is simulated from the deterministic demo scenario
-- **Illustrative Integration Flow** — Architecture demonstrates production-ready connector patterns
-- **Production Connector Boundary** — Real integration would use Paytm Merchant API, OAuth2 authentication, and webhook-based event streaming
-- No production Paytm API credentials are used or claimed
+*   **Executive Command Center (`CommandCenterView`):** Real-time pulse of the merchant’s business featuring the urgent Liquidity Squeeze Alert, working capital health metrics, priority signals, and recent activity timeline.
+*   **Financial Health & Indicators (`FinancialHealthView`):** Gross margins, operating burn rate, 30-day runway projection, and liquidity coverage ratio ($0.90\times$).
+*   **Cashflow Planner & Cliff Radar (`CashflowView`):** 14-day daily cashflow trajectory highlighting safe operational buffers and the impending supplier payment cliff.
+*   **Khata & Receivables Ledger (`KhataReceivablesView`):** Ageing analysis ($0\text{--}7\text{d}, 8\text{--}30\text{d}, 31\text{--}60\text{d}, 61\text{--}90\text{d}, 90+\text{d}$), individual debtor ledgers, and automated payment reminder triggers.
+*   **Supplier Payables (`SupplierPayablesView`):** Supplier invoices, maturity dates, prompt-payment cash discount opportunities, and credit line risk tracking.
+*   **Inventory Velocity & Dead Stock (`InventoryView`):** SKU turnover tracking, stockout forecasting, and dead-stock capital recovery candidates.
+*   **Customer Intelligence (`CustomersView`):** RFM segmentation (High Value, Growing, At Risk, Dormant), credit risk profiling, and payment latency metrics.
+*   **Signal Radar (`SignalsView`):** Real-time feed of deterministic anomaly alerts across liquidity, receivables, inventory, and margin leakage.
+*   **Opportunity Board (`OpportunitiesView`):** Multi-criteria scored and ranked financial interventions with financial stakes and potential gains.
+*   **Evidence Drawer (`EvidenceDrawer`):** The platform’s core differentiator — displays step-by-step mathematical calculations, links to primary records (`BILL-SUP-201`, `INV-REC-101`), and trade-off analysis.
+*   **Action Center & Approval Gateway (`ActionCenterView`):** Staged action lifecycle (`DRAFT → PENDING APPROVAL → APPROVED → EXECUTING → MEASURED`) with 2-step confirmation guardrails and closed-loop outcome verification.
+*   **Data Connections Hub (`ConnectionsView`):** Live sync status across 6 data sources with interactive 7-stage sync simulation (`CONNECTING → AUTHENTICATING → FETCHING → NORMALIZING → VALIDATING → RECONCILING → COMPLETE`).
+*   **Ingestion Pipeline & Quarantine (`IngestionView`):** Pipeline telemetry showing records processed, valid entities, quarantined anomalies, and canonical transformation logs.
+*   **Immutable Audit Trail (`AuditTrailView`):** Timestamped ledger recording every signal detection, user approval, scenario modification, and sync event.
+*   **Unified Transaction Ledger (`TransactionsView`):** Canonical log of multi-channel transactions across Paytm QR, bank transfers, POS cash, and UPI.
+*   **Merchant Settings (`SettingsView`):** Business configuration, tax parameters (GSTIN), and banking linkages.
+*   **Guided Judge Tour (`GuidedTourModal`):** Anchored 10-step guided tour walking evaluators through the complete product story in under 3 minutes.
+*   **Scenario Controller (`TopNavbar`):** Dynamic scenario selector allowing evaluators to switch business conditions and observe deterministic updates across all views.
 
 ---
 
-## System Architecture
+## Flagship Demo Scenario — Rajesh Mobile
 
-### Current Architecture
+> **Disclosure:** _All financial values, customer records, supplier invoices, and transaction logs are synthetic demonstration data engineered to provide reproducible, mathematically consistent evaluation. They do not represent real individuals, bank accounts, or proprietary merchant data._
+
+### The Persona & Canonical Numbers
+
+*   **Merchant:** Rajesh Kumar — Proprietor, *Rajesh Mobile & Accessories*
+*   **Location:** Shop #14, Central Market, Raja Park Market, Jaipur, Rajasthan 302004
+*   **GSTIN:** `08AABCR1234M1Z5` (Active Regular Taxpayer)
+*   **Monthly Gross Revenue:** ₹1,42,800 (+8.4% MoM, 24.5% gross margin)
+*   **Operating Cash Reserve:** ₹40,607 (SBI Current Account ending in `4910` + physical cash drawer)
+*   **Safe Cash Buffer Target:** ₹45,000 (100% of rolling weekly liability requirements)
+*   **Upcoming Supplier Invoice:** ₹45,000 (Sharma Telecom Distributor, `BILL-SUP-201`, due in 5 days on Oct 9)
+*   **Immediate Net Liquidity Gap:** **-₹4,393** (`₹40,607 - ₹45,000 = -₹4,393`)
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                   RAJESH MOBILE WORKING CAPITAL CRISIS                 │
+├──────────────────────────┬─────────────────────────────────────────────┤
+│ Available Cash           │  ₹40,607                                    │
+│ Supplier Obligation Due  │  ₹45,000 (Sharma Telecom, Due in 5 Days)    │
+│ Net Immediate Deficit    │ -₹4,393 (Deficit on Oct 9)                 │
+├──────────────────────────┼─────────────────────────────────────────────┤
+│ UNTAPPED CAPITAL LEVERS  │                                             │
+│ • Overdue Khata Ledgers  │  ₹3,700 (Amit Verma ₹2,200 + Neha ₹1,500)   │
+│ • Locked Dead Stock      │ ₹10,660 (iPhone 11 cases, pouches, OTGs)    │
+│ Total Modeled Recovery   │ +₹11,500 (Khata ₹3,700 + Clearance ₹7,800)  │
+├──────────────────────────┼─────────────────────────────────────────────┤
+│ PROJECTED OUTCOME        │                                             │
+│ Post-Recovery Position   │ +₹7,107 Safe Working Cushion               │
+└──────────────────────────┴─────────────────────────────────────────────┘
+```
+
+### The 5-Step Resolution Narrative
+
+1.  **Detection:** System identifies that invoice `BILL-SUP-201` (₹45,000) exceeds projected operational balance by ₹4,393 on Friday. Fires `SIG-LIQ-CLIFF`.
+2.  **Attribution:** The Evidence Drawer isolates the exact arithmetic: `₹40,607 - ₹45,000 = -₹4,393`. Links directly to source records `BILL-SUP-201`, `INV-REC-101`, and `INV-REC-103`.
+3.  **Formulation:** Opportunity Engine recommends two immediate capital recovery levers:
+    *   *Action #ACT-01:* Send polite WhatsApp payment reminders with instant Paytm UPI paylinks to Amit Verma (₹2,200 / 38 days) and Neha Sharma (₹1,500 / 34 days). Expected: +₹3,700.
+    *   *Action #ACT-02:* Run a 48-hour flash clearance bundle at 25% discount on stagnant iPhone 11 cases and micro-USB OTG adapters. Expected: +₹7,800 net cash.
+4.  **Merchant Approval:** Rajesh inspects the Evidence Drawer, confirms the low relationship risk and minimal effort, and approves Action #ACT-01 and #ACT-02 through the 2-step confirmation modal.
+5.  **Measured Outcome:** Simulated execution delivers payment reminders and executes clearance pricing. Inbound UPI settlements are verified, lifting Rajesh’s net position from **-₹4,393** to **+₹7,107** surplus.
+
+---
+
+## Signal → Opportunity → Action
+
+```
+RAW BUSINESS DATA
+  ├── Paytm QR batch settlement: ₹14,200
+  ├── Supplier Invoice: BILL-SUP-201 (₹45,000 due in 5d)
+  └── Overdue Khata: INV-REC-101 (Amit Verma ₹2,200, 38d)
+         │
+         ▼
+BUSINESS SIGNAL (SIG-LIQ-CLIFF)
+  "Impending liquidity deficit of -₹4,393 detected for Friday Oct 9."
+         │
+         ▼
+FINANCIAL OPPORTUNITY (OPP-01)
+  "Bridge ₹4,393 liquidity gap through targeted Khata recovery & dead stock clearance."
+  Priority Score: 94/100 • Financial Exposure: ₹45,000 • Potential Gain: ₹11,500
+         │
+         ▼
+VERIFIABLE EVIDENCE (EVI-01)
+  Formula: ₹40,607 (SBI Cash) - ₹45,000 (Sharma Telecom Bill) = -₹4,393 Deficit
+  Contributing Records: BILL-SUP-201, INV-REC-101, INV-REC-103, SKU-CS-IP11
+         │
+         ▼
+RECOMMENDED ACTIONS
+  ├── ACT-01: WhatsApp UPI Payment Link dispatch to overdue Khata accounts (+₹3,700)
+  ├── ACT-02: Flash clearance sale on 3 obsolete accessory SKUs (+₹7,800)
+  └── ACT-03: Request 7-day invoice split extension from Sharma Telecom
+         │
+         ▼
+MERCHANT APPROVAL GATE
+  Proprietor reviews trade-offs, risk ratings, and approves ACT-01 & ACT-02.
+         │
+         ▼
+EXECUTION LIFECYCLE
+  DRAFT → PENDING APPROVAL → APPROVED → EXECUTING → SENT → MEASURED
+         │
+         ▼
+MEASURED OUTCOME
+  ₹3,700 collected + ₹7,800 cleared = +₹11,500 cash inflow.
+  Ending cash balance: ₹52,107. After ₹45,000 supplier payment: +₹7,107 safe cushion.
+```
+
+---
+
+## Architecture
+
+### Current Implemented Prototype Architecture
+
+The current implementation is a high-fidelity frontend architecture operating on a centralized deterministic state store and a service abstraction layer.
 
 ```mermaid
-graph TB
-    subgraph "Frontend Application"
-        A["Public Showcase<br/>(World A)"] --> C["React 19 + TypeScript"]
-        B["Merchant App<br/>(World B)"] --> C
-        C --> D["MerchantContext Provider"]
-        D --> E["IMerchantService Interface"]
+flowchart TB
+    subgraph UI["Presentation & View Layer (React 19 + Tailwind CSS 4)"]
+        W_A["World A: Public Showcase<br/>ShowcaseLanding • Architecture • PaytmEcosystem • FAQ"]
+        W_B["World B: Merchant Application<br/>CommandCenter • Cashflow • Khata • Payables • Inventory • Opportunities"]
+        MODALS["Interactive Modals & Drawers<br/>EvidenceDrawer • LiveSyncModal • GuidedTourModal • ActionGate"]
     end
 
-    subgraph "Service Abstraction Layer"
-        E --> F["MockMerchantService<br/>(Current: Deterministic Demo)"]
-        E -. "Future" .-> G["HttpMerchantService<br/>(Production API Client)"]
+    subgraph STATE["State & Context Layer"]
+        CTX["MerchantContext Provider<br/>Active World • Active Tab • Active Scenario • Tour State"]
     end
 
-    subgraph "Data Layer (Current)"
-        F --> H["demoData.ts<br/>(Canonical Single Source of Truth)"]
+    subgraph SVC["Service Abstraction Layer"]
+        INT["IMerchantService Interface<br/>22 Typed Domain Methods"]
+        MOCK["MockMerchantService<br/>(Current: Deterministic In-Memory Service)"]
+        HTTP["HttpMerchantService<br/>(Production Target: REST / GraphQL Client)"]
     end
 
-    subgraph "Future Backend (Not Yet Implemented)"
-        G -. "REST/GraphQL" .-> I["API Gateway"]
-        I -. "Services" .-> J["Intelligence Engine"]
-        I -. "Services" .-> K["Data Connectors"]
-        J -. "Store" .-> L["PostgreSQL / TimescaleDB"]
-        K -. "Ingest" .-> L
+    subgraph DATA["Data & Scenario Layer"]
+        DEMO["demoData.ts<br/>1,195 Lines Canonical Scenario Dataset<br/>6 Switchable Scenarios • Mathematical Consistency"]
     end
 
-    subgraph "External Ecosystem (Future)"
-        K -. "Paytm API" .-> M["Paytm Merchant Gateway"]
-        K -. "AA Framework" .-> N["Account Aggregator"]
-        K -. "XML Bridge" .-> O["Tally Prime"]
-        K -. "WhatsApp API" .-> P["Meta Cloud API"]
-    end
-
-    style A fill:#EEF2FF,stroke:#6366F1,color:#312E81
-    style B fill:#ECFDF5,stroke:#059669,color:#064E3B
-    style F fill:#FEF3C7,stroke:#D97706,color:#78350F
-    style H fill:#FEF3C7,stroke:#D97706,color:#78350F
-    style G fill:#F0F9FF,stroke:#0284C7,color:#0C4A6E,stroke-dasharray: 5 5
-    style I fill:#F0F9FF,stroke:#0284C7,color:#0C4A6E,stroke-dasharray: 5 5
-    style J fill:#F0F9FF,stroke:#0284C7,color:#0C4A6E,stroke-dasharray: 5 5
-    style K fill:#F0F9FF,stroke:#0284C7,color:#0C4A6E,stroke-dasharray: 5 5
-    style L fill:#F0F9FF,stroke:#0284C7,color:#0C4A6E,stroke-dasharray: 5 5
-    style M fill:#F0F9FF,stroke:#0284C7,color:#0C4A6E,stroke-dasharray: 5 5
-    style N fill:#F0F9FF,stroke:#0284C7,color:#0C4A6E,stroke-dasharray: 5 5
-    style O fill:#F0F9FF,stroke:#0284C7,color:#0C4A6E,stroke-dasharray: 5 5
-    style P fill:#F0F9FF,stroke:#0284C7,color:#0C4A6E,stroke-dasharray: 5 5
+    W_A --> CTX
+    W_B --> CTX
+    MODALS --> CTX
+    CTX --> INT
+    INT --> MOCK
+    INT -. "Production Direction" .-> HTTP
+    MOCK --> DEMO
 ```
 
-> **Solid lines** = currently implemented. **Dashed lines** = future production components.
-
-### Intelligence Pipeline
+### Production Direction (Target Backend Architecture)
 
 ```mermaid
-graph LR
-    A["Connect<br/>Data Sources"] --> B["Understand<br/>Canonical Model"]
-    B --> C["Monitor<br/>Continuous Tracking"]
-    C --> D["Detect<br/>Signal Engine"]
-    D --> E["Explain<br/>Evidence Builder"]
-    E --> F["Recommend<br/>Action Generator"]
-    F --> G["Approve<br/>Merchant Guardrails"]
-    G --> H["Act<br/>Execution Engine"]
-    H --> I["Measure<br/>Outcome Verification"]
+flowchart TB
+    subgraph SOURCES["External Ecosystem"]
+        PAYTM["Paytm Merchant APIs<br/>QR / Soundbox / EDC Telemetry"]
+        AA["Account Aggregator (NBFC-AA)<br/>Bank Statement Feeds (SBI, HDFC)"]
+        POS["Retail Smart POS<br/>Real-Time Checkout Webhooks"]
+        TALLY["Tally Prime Bridge<br/>Local XML Export / Sync Daemon"]
+        WA["Meta WhatsApp Cloud API<br/>Template Messaging & Webhooks"]
+    end
 
-    style A fill:#EEF2FF,stroke:#6366F1,color:#312E81
-    style B fill:#EEF2FF,stroke:#6366F1,color:#312E81
-    style C fill:#ECFDF5,stroke:#059669,color:#064E3B
-    style D fill:#FEF2F2,stroke:#E11D48,color:#881337
-    style E fill:#FEF2F2,stroke:#E11D48,color:#881337
-    style F fill:#FEF3C7,stroke:#D97706,color:#78350F
-    style G fill:#FEF3C7,stroke:#D97706,color:#78350F
-    style H fill:#ECFDF5,stroke:#059669,color:#064E3B
-    style I fill:#ECFDF5,stroke:#059669,color:#064E3B
+    subgraph INGEST["Ingestion & Normalization Layer"]
+        EDGE["API Gateway & Webhook Ingestion (mTLS)"]
+        DEDUP["Deduplication Engine (SHA-256 Checksums)"]
+        QUAR["Quality Quarantine (Dirty / Malformed Rows)"]
+        NORM["Schema Normalizer (Canonical Primitives)"]
+    end
+
+    subgraph STORAGE["Authoritative Storage Tier"]
+        PG["PostgreSQL / TimescaleDB<br/>Relational Ledger & Time-Series Cashflow"]
+        AUDIT["Immutable Append-Only Audit Log"]
+    end
+
+    subgraph INTEL["Intelligence & Decision Engine"]
+        TIME["Time-Series Cashflow & Runway Forecaster"]
+        RADAR["Deterministic Signal Radar (Heuristics)"]
+        OPP["Opportunity Scoring & Ranking Engine"]
+        EVI["Evidence Attribution & Lineage Builder"]
+        ACT_ENG["Action Formulation & Approval Gateway"]
+    end
+
+    subgraph COPILOT["Optional AI Copilot Layer (Grounded)"]
+        LLM["Grounded LLM Overlay<br/>Natural Language Explanation • Hindi/English Briefings"]
+    end
+
+    PAYTM --> EDGE
+    AA --> EDGE
+    POS --> EDGE
+    TALLY --> EDGE
+    WA --> EDGE
+
+    EDGE --> DEDUP
+    DEDUP --> QUAR
+    DEDUP --> NORM
+    NORM --> PG
+    PG --> TIME
+    TIME --> RADAR
+    RADAR --> OPP
+    OPP --> EVI
+    EVI --> ACT_ENG
+    ACT_ENG --> AUDIT
+
+    EVI -. "Contextual JSON" .-> LLM
+    LLM -. "Draft Copy" .-> ACT_ENG
 ```
 
 ---
 
-## Technology Stack
+## Deterministic Core + AI Boundary
 
-All dependencies verified from `package.json`:
+A foundational architectural principle of MerchantMind is the strict separation between deterministic business calculations and probabilistic natural language generation.
 
-| Layer | Technology | Version | Purpose |
-|---|---|---|---|
-| **Runtime** | React | 19.2 | Component architecture & reactive state |
-| **Language** | TypeScript | ~6.0 | Strict type contracts across all domain models |
-| **Build** | Vite | 8.3 | Sub-second HMR, optimized production builds |
-| **Styling** | Tailwind CSS | 4.3 | Utility-first design system with `@tailwindcss/vite` plugin |
-| **Icons** | Lucide React | 1.52 | Consistent, tree-shakeable icon library |
-| **Utilities** | clsx + tailwind-merge | 2.1 / 3.7 | Conditional class composition without conflicts |
-| **Typography** | Inter + JetBrains Mono | Google Fonts | Premium sans-serif body + monospaced financial numerals |
-| **Linting** | oxlint | 1.81 | Fast Rust-based linter |
-| **Deployment** | Vercel | SPA mode | Zero-config static deployment with rewrite rules |
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                   THE ARCHITECTURAL SEPARATION                         │
+├────────────────────────────────────┬───────────────────────────────────┤
+│ 1. THE DETERMINISTIC CORE          │ 2. OPTIONAL AI COPILOT OVERLAY    │
+│    (Authoritative Ground Truth)    │    (Conversational Assistant)     │
+├────────────────────────────────────┼───────────────────────────────────┤
+│ • Ledger balances & cash arithmetic│ • Multi-lingual natural language  │
+│ • Net liquidity gap calculations   │ • Explaining findings in Hindi    │
+│ • Khata ageing days & thresholds   │ • Courteous WhatsApp draft tone   │
+│ • Inventory velocity & dead stock  │ • Voice query interpretation      │
+│ • Multi-criteria priority scores   │ • Executive briefing summaries    │
+│ • Action eligibility gates         │ • Contextual merchant Q&A         │
+├────────────────────────────────────┴───────────────────────────────────┤
+│ RULE: LLMs never calculate numbers, never invent financial balances,   │
+│       and never execute financial actions autonomously.                │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+> **"The LLM is replaceable. The merchant intelligence platform is the product."**
+
+If generative AI capabilities are disabled or swapped, MerchantMind continues to operate with 100% mathematical integrity because every alert, calculation, and recommended action derives from the deterministic core.
 
 ---
 
-## Project Structure
+## Data Model
+
+The platform canonicalizes disparate inputs into strongly typed TypeScript contracts defined in `src/types/index.ts`:
+
+*   **`MerchantProfile`:** Legal business identity, proprietor name, GSTIN, registered market address, verified bank account, active scenario.
+*   **`FinancialHealthMetrics`:** Monthly revenue, gross margins, available cash, safe cash buffer target, cash runway in days, liquidity coverage ratio, total receivables, overdue credit, urgent 7-day payables, dead stock valuation, net liquidity gap.
+*   **`CashflowDatapoint`:** Daily calendar date, inflow, outflow, net daily balance, actual balance, projected balance, safe buffer threshold, payment cliff annotation flag.
+*   **`ReceivableRecord`:** Customer identifier, invoice reference, original invoice amount, outstanding balance, invoice date, due date, days overdue, ageing bucket, credit risk classification.
+*   **`PayableRecord`:** Supplier name, invoice number, category, total invoice amount, due date, days until due, payment urgency status, prompt-payment cash discount terms.
+*   **`InventoryItem`:** SKU code, product description, category, current stock quantity, unit cost price, retail price, total inventory valuation, days in inventory, monthly sales velocity, dead stock status.
+*   **`CustomerProfile`:** Customer name, contact number, RFM customer segment (`HIGH_VALUE`, `GROWING`, `AT_RISK`, `DORMANT`), lifetime spend, order count, outstanding Khata, payment latency.
+*   **`BusinessSignal`:** Unique signal code (`SIG-LIQ-CLIFF`, `SIG-REC-OVERDUE`, `SIG-INV-DEADSTOCK`), severity, category, detection timestamp, metric impact, confidence score, deterministic trigger formula, linked entity IDs.
+*   **`Opportunity`:** Multi-criteria priority, urgency in days, financial exposure, modeled recovery potential, confidence percentage, summary, step-by-step arithmetic explanation, trade-off analysis, linked evidence ID, recommended action IDs.
+*   **`EvidenceRecord`:** Explicit formula, breakdown steps with positive and negative inputs, contributing primary records, audit timeline events, risk ratings, trade-offs.
+*   **`RecommendedAction`:** Action code, target entity, channel type (`WHATSAPP_PAYLINK`, `CLEARANCE_PROMO`, `SUPPLIER_RESTRUCTURE`), expected recovery amount, execution effort, risk level, multi-stage execution lifecycle status.
+*   **`DataConnection`:** Provider identifier, connection category, integration type, connection status, last sync timestamp, records processed, health percentage.
+*   **`IngestionJobLog`:** Batch ID, source provider, stage status, records ingested, records validated, records quarantined, latency.
+*   **`AuditEvent`:** Immutable event log recording actor, category, action title, entity reference, timestamp, and summary.
+*   **`TransactionRecord`:** Unified transaction ledger entry recording timestamp, customer, channel, amount, payment method, reconciliation status.
+
+---
+
+## Ingestion & Reconciliation
+
+MerchantMind ingests data following an append-only pipeline designed for dirty, heterogeneous real-world data:
+
+$$\text{Source Stream} \longrightarrow \text{Validation} \longrightarrow \text{Deduplication (SHA-256)} \longrightarrow \text{Normalization} \longrightarrow \text{Reconciliation} \longrightarrow \text{Canonical Entities}$$
+
+### Quality Quarantine Layer
+
+Real-world merchant data frequently contains malformed rows, missing identifiers, or negative quantities. The Ingestion Engine validates schema conformity before database mutation. Invalid or ambiguous records are isolated in the **Quality Quarantine Ledger** with explicit error flags (e.g., `MISSING_GSTIN`, `INVALID_TIMESTAMP`, `NEGATIVE_INVENTORY_DELTA`), ensuring dirty feeds cannot pollute the merchant's financial ground truth.
+
+### Manual CSV Import Fallback
+
+Automated API bridges represent the primary integration channel. However, MerchantMind provides a drag-and-drop CSV import dropzone as an onboarding, recovery, and offline fallback mechanism.
+
+> **Design Principle:** _"Connect once. Sync continuously. Monitor automatically."_
+
+---
+
+## Opportunity Engine
+
+The Opportunity Engine ranks detected financial issues to prevent notification fatigue and ensure the merchant attends to the most critical capital levers first.
+
+### Priority Scoring Formula
+
+$$\text{Priority Score} = 0.35 \times \text{Urgency} + 0.35 \times \text{Financial Stakes} + 0.20 \times \text{Confidence} + 0.10 \times \text{Evidence Rigor}$$
+
+*   **Urgency ($0.35$):** Time proximity to financial impact. A bill due in 5 days scores significantly higher than a discount expiring in 25 days.
+*   **Financial Stakes ($0.35$):** Total monetary exposure relative to the merchant's monthly revenue and liquid cash.
+*   **Confidence ($0.20$):** Completeness of reconciled data backing the signal (e.g., verified bank statement vs unconfirmed ledger entry).
+*   **Evidence Rigor ($0.10$):** Number of cross-referenced source documents corroborating the finding.
+
+Every opportunity is deterministically scored, ranked, and classified into `CRITICAL`, `HIGH`, `MEDIUM`, or `LOW`.
+
+---
+
+## Evidence-First Explainability
+
+Every material finding in MerchantMind must satisfy the **5-Point Proof Standard** in the Evidence Drawer:
+
+1.  **WHAT was detected?** Clear, jargon-free statement of the condition.
+2.  **WHY does it matter?** Immediate business consequence (e.g., vendor credit hold, bank bounce penalty).
+3.  **WHAT is the exact calculation?** Complete mathematical arithmetic:
+    $$\text{Available Cash (₹40,607)} - \text{Due Bill (₹45,000)} = \text{Net Deficit (-₹4,393)}$$
+4.  **WHICH primary records prove it?** Clickable links to specific invoices (`BILL-SUP-201`), Khata ledgers (`INV-REC-101`), and inventory items.
+5.  **WHAT are the trade-offs?** Analysis of each available intervention (e.g., flash clearance sacrifices 15% margin to unlock immediate cash).
+
+---
+
+## Action Engine & Human Control
+
+MerchantMind strictly enforces **Human-in-the-Loop Governance**. The platform never initiates external communications or modifies financial state without explicit merchant authorization.
+
+### Action Execution Lifecycle
+
+```mermaid
+stateDiagram-v2
+    [*] --> DRAFT: Formulated by Opportunity Engine
+    DRAFT --> PENDING_APPROVAL: Presented in Action Center
+    PENDING_APPROVAL --> APPROVED: Merchant authorizes in 2-Step Gate
+    PENDING_APPROVAL --> DISMISSED: Merchant rejects recommendation
+    APPROVED --> EXECUTING: Payload compiled for dispatch
+    EXECUTING --> SENT: Dispatched to external channel
+    SENT --> AWAITING_PAYMENT: Monitoring downstream settlement
+    AWAITING_PAYMENT --> MEASURED: Outcome verified against projection
+    MEASURED --> [*]
+```
+
+### 2-Step Confirmation Guardrail
+
+Sensitive actions (such as dispatching payment reminder links or altering retail prices) trigger a modal dialogue detailing:
+*   Action target entity and contact number
+*   Expected recovery amount vs potential relationship risk
+*   Explicit disclosure: _"This is an action execution simulation in Demo Mode"_
+
+---
+
+## Connections & Paytm Ecosystem
 
 ```
-merchantmind/
-├── index.html                          # Entry point with SEO meta, fonts, viewport
-├── package.json                        # Dependencies and scripts
-├── vite.config.ts                      # Vite + React + Tailwind CSS plugin
-├── vercel.json                         # SPA rewrite rules for Vercel deployment
-├── tsconfig.json                       # TypeScript project references
-│
+┌────────────────────────────────────────────────────────────────────────┐
+│                   DATA CONNECTIONS ARCHITECTURE                        │
+├─────────────────────────┬──────────────────────────────────────────────┤
+│ CONNECTION SURFACE      │ CURRENT STATUS (PROTOTYPE)                   │
+├─────────────────────────┼──────────────────────────────────────────────┤
+│ 1. Paytm QR & Soundbox  │ Demo Connected (Simulated transaction stream)│
+│ 2. SBI Current Account  │ Demo Connected (Account Aggregator mock)     │
+│ 3. Retail Smart POS     │ Demo Connected (Checkout webhook simulation) │
+│ 4. Tally Prime / XML    │ Connector Ready (Local bridge daemon mock)   │
+│ 5. Inventory Barcode    │ Connected (Simulated stock scan updates)     │
+│ 6. WhatsApp Business    │ Demo Connected (Simulated Cloud API sandbox) │
+└─────────────────────────┴──────────────────────────────────────────────┘
+```
+
+### Paytm-Aligned Integration Layer
+
+MerchantMind is architected to interface cleanly with Paytm's merchant technology ecosystem:
+
+*   **Paytm QR & Soundbox Telemetry:** Ingestion of real-time audio confirmation and UPI payment callbacks into the canonical transaction ledger.
+*   **Paytm All-in-One POS:** Real-time synchronization of counter sales, card disbursements, and digital payment receipts.
+*   **Paytm Payouts & Vendor Invoicing:** Automated reconciliation of supplier invoice payments against bank balance debits.
+*   **Paytm Merchant Lending:** Providing underwriters with deterministic business health, cash runway, and verified Khata recovery rates to reduce loan risk premiums.
+
+> **Honest Prototype Boundary:** _The current implementation uses synthetic telemetry data to demonstrate integration schemas and data flows. It does not connect to live production banking networks or proprietary Paytm merchant APIs._
+
+---
+
+## Live Demo & Scenarios
+
+### 7-Stage Live Sync Simulation
+
+Evaluators can open the **Data Connections Hub** and trigger a live synchronization cycle that simulates the full enterprise ingestion pipeline across 7 stages:
+
+```
+[1. CONNECTING]   → Establishing secure TLS connection to provider endpoint
+[2. AUTHENTICATING]→ Verifying OAuth2 merchant token and credential signatures
+[3. FETCHING]     → Streaming raw transaction batch payloads
+[4. NORMALIZING]  → Mapping heterogeneous JSON schemas to canonical primitives
+[5. VALIDATING]   → Running data integrity checks and routing corrupted rows to quarantine
+[6. RECONCILING]  → Matching bank balance against ledger entries and settlement records
+[7. COMPLETE]     → Canonical state updated; signals and opportunities recomputed
+```
+
+### 6 Switchable Deterministic Scenarios
+
+The `TopNavbar` includes a scenario manager allowing evaluators to swap between 6 pre-configured merchant conditions:
+
+1.  **Rajesh Mobile Crisis (Default Flagship):** Supplier payment cliff with -₹4,393 deficit, ₹3,700 trapped Khata, and ₹10,660 dead stock.
+2.  **Healthy Business:** Robust surplus (+₹56,500 cushion), zero overdue Khata, and healthy inventory turnover.
+3.  **Cash Pressure:** Tight working capital buffer (-₹3,000 gap) with moderate supplier obligations.
+4.  **Receivables Risk:** Chronic customer credit defaults with ₹14,800 trapped past 45 days.
+5.  **Inventory Risk:** Severe stock stagnation with ₹28,400 frozen in 4 discontinued accessory models.
+6.  **Supplier Payment Cliff:** Acute 48-hour emergency with ₹52,000 distributor bill due against ₹31,200 cash (-₹20,800 deficit).
+
+---
+
+
+## Repository Structure
+
+```
+merchantmind_hacksprint/
 ├── docs/
-│   ├── MASTER_BLUEPRINT.md             # Product vision, architecture, design system
-│   └── PROJECT_STATE.md                # Current implementation status tracker
-│
+│   ├── MASTER_BLUEPRINT.md            # Comprehensive architecture & design document
+│   └── PROJECT_STATE.md               # Implementation progress & verification tracker
+├── public/
+│   ├── favicon.svg                    # Brand favicon
+│   └── icons.svg                      # Vector sprite definitions
 ├── src/
-│   ├── main.tsx                        # React DOM entry point
-│   ├── App.tsx                         # World switcher (Showcase ↔ Merchant App)
-│   ├── App.css                         # Global custom CSS and animations
-│   ├── index.css                       # Tailwind CSS imports and base styles
-│   │
-│   ├── types/
-│   │   └── index.ts                    # 18 TypeScript domain contracts
-│   │                                   #   MerchantProfile, FinancialHealthMetrics,
-│   │                                   #   CashflowDatapoint, ReceivableRecord,
-│   │                                   #   PayableRecord, InventoryItem, CustomerProfile,
-│   │                                   #   BusinessSignal, Opportunity, EvidenceRecord,
-│   │                                   #   RecommendedAction, DataConnection,
-│   │                                   #   IngestionJobLog, AuditEvent, TransactionRecord,
-│   │                                   #   MerchantActivityEvent, and enums
-│   │
-│   ├── mock/
-│   │   └── demoData.ts                 # Single source of truth (1,195 lines)
-│   │                                   #   All financial numbers, records, scenarios
-│   │                                   #   derive from this file exclusively
-│   │
-│   ├── services/
-│   │   ├── types.ts                    # IMerchantService interface (22 methods)
-│   │   └── MockMerchantService.ts      # Deterministic implementation with simulation
-│   │
-│   ├── context/
-│   │   └── MerchantContext.tsx          # React Context provider — global state,
-│   │                                   #   world/tab navigation, evidence drawer,
-│   │                                   #   action simulation, guided tour, demo reset
-│   │
-│   ├── layouts/
-│   │   ├── AppShell.tsx                # Merchant app shell (sidebar + topbar + content)
-│   │   ├── PublicShell.tsx             # Public showcase shell (topbar + content)
-│   │   ├── TopNavbar.tsx               # World switcher, demo controller, sync status
-│   │   ├── AppSidebar.tsx              # 5-section navigation with live badges
-│   │   ├── DemoModeBanner.tsx          # Persistent demo mode disclosure ribbon
-│   │   ├── EvidenceDrawer.tsx          # Slide-over evidence inspection panel
-│   │   └── GuidedTourModal.tsx         # 10-step interactive judge tour
-│   │
+│   ├── assets/
+│   │   ├── hero.png                   # High-resolution platform preview screenshot
+│   │   ├── react.svg                  # React ecosystem vector
+│   │   └── vite.svg                   # Vite toolchain vector
 │   ├── components/
-│   │   ├── ui/                         # Foundation design system
-│   │   │   ├── Badge.tsx               # Status badges with color variants
-│   │   │   ├── Button.tsx              # Primary/secondary/ghost buttons
-│   │   │   ├── Card.tsx                # Elevated card container
-│   │   │   ├── Drawer.tsx              # Slide-over panel
-│   │   │   └── Modal.tsx               # Dialog overlay
-│   │   ├── showcase/
-│   │   │   └── ProductFaqGrid.tsx      # Interactive FAQ accordion for judges
+│   │   ├── connections/
+│   │   │   ├── ConnectionDetailsModal.tsx     # Connection inspect & config modal
+│   │   │   └── LiveSyncSimulationModal.tsx    # 7-stage live sync animation & telemetry
 │   │   ├── intelligence/
-│   │   │   ├── SignalActionFlowCard.tsx # Signal → Action visual flow
-│   │   │   └── MerchantActivityTimeline.tsx  # Real-time activity feed
-│   │   └── connections/
-│   │       ├── ConnectionDetailsModal.tsx    # Data source detail inspector
-│   │       └── LiveSyncSimulationModal.tsx   # 7-stage sync simulation
-│   │
-│   ├── views/                          # 19 view components (one per screen)
-│   │   ├── PublicShowcaseView.tsx       # World A landing page (78KB — largest view)
-│   │   ├── CommandCenterView.tsx        # Executive dashboard with squeeze alert
-│   │   ├── FinancialHealthView.tsx      # P&L and health indicators
-│   │   ├── CashflowView.tsx            # Daily projection with cliff detection
-│   │   ├── TransactionsView.tsx        # Unified transaction ledger
-│   │   ├── KhataReceivablesView.tsx    # Ageing buckets and reminder dispatch
-│   │   ├── SupplierPayablesView.tsx    # Supplier bills and cliff flags
-│   │   ├── InventoryView.tsx           # SKU velocity and dead stock analysis
-│   │   ├── CustomersView.tsx           # Segments, RFM, credit risk scoring
-│   │   ├── SignalsView.tsx             # Business signal radar
-│   │   ├── OpportunitiesView.tsx       # Ranked opportunity center
-│   │   ├── ActionCenterView.tsx        # Approval queue and execution simulator
-│   │   ├── ConnectionsView.tsx         # 9 data source integration hub
-│   │   ├── IngestionView.tsx           # Pipeline telemetry and quarantine log
-│   │   ├── AuditTrailView.tsx          # Immutable event timeline
-│   │   ├── HowItWorksView.tsx          # Interactive product walkthrough
-│   │   ├── ArchitectureView.tsx        # Technical architecture diagram
-│   │   ├── PaytmEcosystemView.tsx      # Paytm integration documentation
-│   │   └── SettingsView.tsx            # Merchant profile and scenario management
-│   │
-│   └── utils/
-│       ├── cn.ts                       # clsx + tailwind-merge utility
-│       └── formatters.ts              # Currency, percentage, date formatting
+│   │   │   ├── MerchantActivityTimeline.tsx   # Live activity timeline feed
+│   │   │   └── SignalActionFlowCard.tsx       # Decision card linking signal to action
+│   │   ├── showcase/
+│   │   │   └── ProductFaqGrid.tsx             # 12-question technical FAQ grid
+│   │   └── ui/
+│   │       ├── Badge.tsx                      # FinTech design system status badge
+│   │       ├── Button.tsx                     # Polymorphic button with loading states
+│   │       ├── Card.tsx                       # Structural container card
+│   │       ├── Drawer.tsx                     # Slide-over drawer container
+│   │       └── Modal.tsx                      # Centered dialog backdrop & container
+│   ├── context/
+│   │   └── MerchantContext.tsx        # Centralized application state & service provider
+│   ├── layouts/
+│   │   ├── AppShell.tsx               # World B merchant app shell layout
+│   │   ├── AppSidebar.tsx             # 5-section collapsible sidebar navigation
+│   │   ├── DemoModeBanner.tsx          # Sandbox disclaimer banner & reset trigger
+│   │   ├── EvidenceDrawer.tsx         # Slide-over calculation breakdown & source proof
+│   │   ├── GuidedTourModal.tsx        # 10-step anchored judge walkthrough
+│   │   ├── PublicShell.tsx            # World A public showcase shell layout
+│   │   └── TopNavbar.tsx              # World switcher, scenario selector & demo controller
+│   ├── mock/
+│   │   └── demoData.ts                # 1,195 lines of canonical deterministic scenario records
+│   ├── services/
+│   │   ├── MockMerchantService.ts     # In-memory implementation of IMerchantService
+│   │   └── types.ts                   # IMerchantService interface (22 typed methods)
+│   ├── types/
+│   │   └── index.ts                   # Core domain data contracts & schemas
+│   ├── utils/
+│   │   ├── cn.ts                      # Tailwind class variance utility (clsx + twMerge)
+│   │   └── formatters.ts              # INR currency (₹) and Indian date formatting
+│   ├── views/
+│   │   ├── ActionCenterView.tsx       # Approval queue & execution simulation
+│   │   ├── ArchitectureView.tsx       # Interactive 10-stage pipeline topology
+│   │   ├── AuditTrailView.tsx         # Immutable event & decision audit ledger
+│   │   ├── CashflowView.tsx           # Daily cash trajectory & cliff radar
+│   │   ├── CommandCenterView.tsx      # Executive merchant dashboard & squeeze alert
+│   │   ├── ConnectionsView.tsx        # Data sources & live sync simulation
+│   │   ├── CustomersView.tsx          # RFM segments & credit risk profiles
+│   │   ├── FinancialHealthView.tsx    # P&L indicators, gross margin, burn rate
+│   │   ├── HowItWorksView.tsx         # Narrative lifecycle walkthrough
+│   │   ├── IngestionView.tsx          # Ingestion telemetry & quality quarantine
+│   │   ├── InventoryView.tsx          # SKU velocity & dead stock recovery
+│   │   ├── KhataReceivablesView.tsx   # Ageing buckets & customer credit ledgers
+│   │   ├── OpportunitiesView.tsx      # Multi-criteria ranked financial opportunities
+│   │   ├── PaytmEcosystemView.tsx     # Paytm integration surfaces & schemas
+│   │   ├── PublicShowcaseView.tsx     # World A landing & 5 core judge questions
+│   │   ├── SettingsView.tsx           # Merchant business configuration & GSTIN
+│   │   ├── SignalsView.tsx            # Deterministic anomaly detection radar
+│   │   ├── SupplierPayablesView.tsx   # Supplier bills & payment schedules
+│   │   └── TransactionsView.tsx       # Unified multi-channel transaction ledger
+│   ├── App.css                        # Application-wide component animations
+│   ├── App.tsx                        # Root router & view coordinator
+│   ├── index.css                      # Tailwind CSS 4 tokens & typography
+│   └── main.tsx                       # React 19 application entry point
+├── package.json                       # Dependencies & build scripts
+├── tsconfig.json                      # TypeScript configuration
+├── vercel.json                        # Vercel SPA rewrite deployment configuration
+└── vite.config.ts                     # Vite bundler configuration
 ```
 
 ---
 
-## Demo Data Architecture
+## Recommended Judge Demo Flow
 
-MerchantMind uses **centralized deterministic demo data** by deliberate design choice:
+To evaluate MerchantMind in **3 to 4 minutes**, follow this recommended path:
 
-### Why Deterministic?
+```
+[00:00 - 00:45] World A: Public Showcase
+  └── Review the core thesis, the 5 Judge Questions, and the 10-stage pipeline topology.
+  └── Notice the distinction between the Deterministic Financial Core and the AI Copilot.
 
-| Principle | Explanation |
-|---|---|
-| **Single source of truth** | Every financial number in the UI derives from `src/mock/demoData.ts` |
-| **Mathematical consistency** | ₹40,607 − ₹45,000 = −₹4,393 is always correct on every screen |
-| **Reproducible demo** | Any judge sees identical data — no random variance or session drift |
-| **No hallucinated values** | Zero randomly generated numbers; every value is hand-verified |
-| **Easy backend replacement** | `IMerchantService` provides the abstraction boundary |
+[00:45 - 01:30] World B: Executive Command Center
+  └── Click "Switch to Merchant App" or "Launch Interactive Demo".
+  └── Observe the Liquidity Squeeze Alert: ₹40,607 cash vs ₹45,000 Sharma Telecom bill due in 5 days.
+  └── Note the net deficit of -₹4,393 and the potential recovery of +₹11,500.
 
-### Service Abstraction
+[01:30 - 02:15] Inspect Evidence Proof (The Core Differentiator)
+  └── Click "Inspect Evidence" on the Command Center banner.
+  └── The Evidence Drawer slides out: review the exact arithmetic formula.
+  └── Click source records (BILL-SUP-201, INV-REC-101) to verify line-item provenance.
 
-All 19 views query data through the `IMerchantService` interface (22 methods), injected via `MerchantContext`. The current implementation is `MockMerchantService`, which reads from `demoData.ts`.
+[02:15 - 03:00] Action Approval & Execution Simulation
+  └── Navigate to Action Center.
+  └── Click "Review & Approve" on Action #ACT-01 (WhatsApp UPI reminders).
+  └── Observe the 2-step confirmation modal with demo guardrail disclosures.
+  └── Watch the execution lifecycle transition: APPROVED → EXECUTING → SENT → MEASURED.
+  └── Check Closed-Loop Outcome Verification: position transforms from -₹4,393 to +₹7,107.
 
-When a production backend is ready, swapping to a real API client requires **zero changes** to any UI component:
+[03:00 - 03:30] Data Connections & Live Sync Simulation
+  └── Navigate to Connections.
+  └── Click "Simulate Live Sync" to observe the 7-stage pipeline animation.
+  └── Inspect Ingestion Telemetry: 42 records processed, 0 schema errors, 1 record quarantined.
 
-```typescript
-// Current (demo)
-const service = new MockMerchantService();
-
-// Future (production) — same interface, different implementation
-const service = new HttpMerchantService('https://api.merchantmind.com/v1');
+[03:30 - 04:00] Guided Tour & Scenario Switcher
+  └── Launch the 10-Step Guided Tour from the top navbar.
+  └── Use the Scenario Switcher to test "Healthy Business" or "Inventory Risk" and watch all views update.
 ```
 
 ---
 
+## Engineering Principles
 
-## 🎬 Recommended Judge Demo Flow
-
-A guided walkthrough designed for a **2–4 minute** hackathon presentation.
-
-### Step 1 — Public Showcase (0:00–0:30)
-
-**Show:** Landing page hero and product story  
-**Say:** _"MerchantMind is a financial operating system for Indian retail merchants. It connects fragmented data and turns it into evidence-backed decisions."_  
-**Why it matters:** Establishes product category — this is not a dashboard or chatbot.
-
-### Step 2 — The Problem (0:30–0:45)
-
-**Show:** Scroll to the problem section on the showcase  
-**Say:** _"Millions of merchants run ₹1-2L/month businesses with data scattered across Paytm, bank statements, Khata notebooks, and Tally. They can't answer: do I have enough cash to pay my supplier on Friday?"_  
-**Why it matters:** Anchors the real-world pain point.
-
-### Step 3 — Enter the Merchant App (0:45–1:00)
-
-**Show:** Click "Launch Merchant App" to switch to World B → Command Center  
-**Say:** _"Let's look at Rajesh Kumar's mobile shop in Jaipur. He earns ₹1.4L/month but has a crisis he doesn't know about yet."_  
-**Why it matters:** Transitions from storytelling to the live product.
-
-### Step 4 — The Liquidity Squeeze (1:00–1:15)
-
-**Show:** Command Center alert banner — ₹45,000 due vs ₹40,607 available  
-**Say:** _"MerchantMind has detected a ₹4,393 liquidity gap. In 5 days, Rajesh won't be able to pay his supplier Sharma Telecom."_  
-**Why it matters:** Demonstrates proactive detection, not reactive reporting.
-
-### Step 5 — Inspect the Evidence (1:15–1:45)
-
-**Show:** Open Evidence Drawer from the opportunity card  
-**Say:** _"Every claim is backed by deterministic evidence. Here's the exact calculation: ₹40,607 minus ₹45,000 equals negative ₹4,393. Here are the source invoices. Here's the audit trail showing when each record was ingested."_  
-**Why it matters:** This is the core differentiator — transparency and verifiability.
-
-### Step 6 — Data Connections & Paytm (1:45–2:00)
-
-**Show:** Navigate to Connections & Paytm → trigger Live Sync Simulation  
-**Say:** _"MerchantMind ingests data from Paytm QR, SBI netbanking, POS, Tally, and inventory systems. Watch the 7-stage sync pipeline."_  
-**Why it matters:** Shows data infrastructure and Paytm ecosystem alignment.
-
-### Step 7 — Financial Modules (2:00–2:15)
-
-**Show:** Quick scan through Cashflow (cliff visualization), Khata (ageing buckets), Inventory (dead stock)  
-**Say:** _"The financial modules show where cash is trapped: ₹3,700 in overdue Khata, ₹10,660 in dead stock. Total exposure across all opportunities: ₹99,967."_  
-**Why it matters:** Demonstrates operational depth across working capital dimensions.
-
-### Step 8 — Opportunities & Actions (2:15–2:30)
-
-**Show:** Opportunity Center → select the critical opportunity → view ranked actions  
-**Say:** _"MerchantMind generates 3 ranked actions: send WhatsApp paylinks to recover ₹3,700, launch a flash clearance to unlock ₹7,800, or negotiate with the supplier. Each action shows expected impact, effort, and risk."_  
-**Why it matters:** Shows the RECOMMEND stage with trade-off analysis.
-
-### Step 9 — Execute & Measure (2:30–2:50)
-
-**Show:** Action Center → Approve action → Watch execution simulation → Outcome panel  
-**Say:** _"Rajesh approves the action. MerchantMind simulates execution and measures the outcome: deficit closed, surplus of ₹7,107."_  
-**Why it matters:** Demonstrates the full APPROVE → ACT → MEASURE closed loop.
-
-### Step 10 — Architecture & Guided Tour (2:50–3:00)
-
-**Show:** Architecture view or trigger the 10-step Guided Tour  
-**Say:** _"The entire system is built on a service abstraction layer. The mock data layer can be replaced with a production backend without changing any UI code."_  
-**Why it matters:** Technical credibility for engineering evaluation.
+*   **Deterministic Financial Core:** Financial figures, liquidity shortfalls, aging calculations, and action formulations are computed using exact arithmetic. Probabilistic models do not touch financial calculations.
+*   **Centralized Single Source of Truth:** All views, metrics, and indicators derive from a canonical dataset (`demoData.ts`). No component hardcodes conflicting financial figures.
+*   **Service Abstraction Layer:** The presentation tier interfaces with state solely via `IMerchantService`. Migrating to a production REST/GraphQL backend requires swapping `MockMerchantService` with `HttpMerchantService` without altering UI components.
+*   **Evidence-First Decision Making:** No recommendation is displayed without an accompanying verifiable calculation tree and primary source record references.
+*   **Human-in-the-Loop Governance:** The system never executes external communications, alters inventory pricing, or initiates payment flows without merchant authorization.
+*   **Explicit Demo Boundaries:** The prototype maintains transparent disclosure banners, simulated execution labels, and clear demarcations between current capabilities and production targets.
 
 ---
 
-## Why MerchantMind?
+## Security, Privacy & Governance
 
-| Dimension | Traditional Dashboard | MerchantMind |
-|---|---|---|
-| **Core question** | _"What happened?"_ | _"What happened + Why + What to do + How much to recover + What proves it?"_ |
-| **Data model** | Disconnected charts per data source | Unified canonical model across all sources |
-| **Alerts** | Generic threshold notifications | Contextual signals with financial attribution |
-| **Recommendations** | None — user interprets charts | Ranked actions with trade-off analysis |
-| **Evidence** | None — trust the chart | Full calculation tree + source record links |
-| **Execution** | None — "see your accountant" | 1-click approved actions with progress tracking |
-| **Outcome** | None | Measured delta: _"deficit closed, surplus achieved"_ |
-| **Audit** | None | Immutable event trail from detection to outcome |
+### Prototype Design Principles
 
----
+*   **Zero Credential Exposure:** The frontend contains no API keys, private tokens, or live database credentials.
+*   **Synthetic Demonstration Data:** All names, telephone numbers, GSTIN numbers, and bank account sequences are synthetic and fictitious.
+*   **Client-Side Sandboxing:** All simulated execution flows execute in memory within the client application; no external network requests are dispatched to real customers or suppliers.
 
-## Trust, Transparency & Guardrails
+### Production Architectural Target
 
-| Principle | Implementation |
-|---|---|
-| **Deterministic calculations** | All financial computations use exact arithmetic from canonical records — no probabilistic estimates in the demo |
-| **Evidence traceability** | Every opportunity links to source records (invoices, bills, SKU entries) via the Evidence Drawer |
-| **Explicit demo boundaries** | Persistent `Demo Mode` banner, honest connection status badges (`Demo Connected`, `Connector Ready`, `Coming Soon`) |
-| **Action sandbox** | 2-step approval confirmation with explicit "This is a simulated execution" disclosure |
-| **Audit trail** | Every signal detection, action approval, and sync event is logged with timestamp and actor |
-| **No black-box claims** | The system explains _how_ it arrived at every recommendation |
+*   **Tenant Isolation:** Row-level security (RLS) in PostgreSQL ensuring strict multi-tenant merchant boundary isolation.
+*   **DPDP Act 2023 Alignment:** Architected to comply with India’s Digital Personal Data Protection Act: explicit merchant consent, purpose limitation, and data minimization.
+*   **Hardware Token Security:** All integration connectors with Paytm and banking Account Aggregators utilize mutual TLS (mTLS) and hardware security modules (HSM) for credential custody.
+*   **Immutable Audit Logging:** Every system access, recommendation formulation, and action authorization is written to an append-only audit trail.
 
 ---
 
 ## Current Status
 
-### ✅ Complete — Implemented & Verified
-
-- [x] Frontend application architecture (React 19, TypeScript, Vite)
-- [x] Design system (Tailwind CSS 4, Inter typography, fintech-grade aesthetics)
-- [x] Public Showcase with product storytelling (World A)
-- [x] 19-screen Merchant App (World B) with full navigation
-- [x] Centralized deterministic demo data (1,195 lines, mathematically verified)
-- [x] Service abstraction layer (`IMerchantService` with 22 methods)
-- [x] Executive Command Center with liquidity squeeze alert
-- [x] Evidence Drawer with calculation breakdown and source records
-- [x] 5 ranked opportunities with ₹99,967 total exposure
-- [x] 3 recommended actions with impact/effort/risk analysis
-- [x] Action Center with 5-stage execution lifecycle simulation
-- [x] Closed-loop outcome measurement (-₹4,393 → +₹7,107)
-- [x] 9 data source connections with sync health badges
-- [x] 7-stage live sync simulation (Paytm-aligned)
-- [x] Ingestion pipeline telemetry with quarantine logging
-- [x] Immutable audit trail
-- [x] 10-step interactive Guided Judge Tour
-- [x] Demo controller (reset, restart scenario, replay tour)
-- [x] Responsive layout (desktop, tablet, mobile)
-- [x] Production build passing (`npm run build` — 0 errors)
-- [x] Vercel deployment configuration
-
-### 🟡 Future — Not Yet Implemented
-
-- [ ] Production backend (Node.js / Python microservices)
-- [ ] PostgreSQL / TimescaleDB data persistence
-- [ ] Real authentication and merchant onboarding
-- [ ] Production Paytm Merchant API connector
-- [ ] Account Aggregator bank feed integration
-- [ ] Real Tally Prime XML bridge connector
-- [ ] WhatsApp Business Cloud API for action execution
-- [ ] Production ML models (seasonal forecasting, churn prediction)
-- [ ] Multi-tenant merchant isolation
-- [ ] Real ingestion pipeline with schema validation
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                      CURRENT DEVELOPMENT STATUS                        │
+├────────────────────────────────────────────────────────────────────────┤
+│ 🟢 HACKATHON PROTOTYPE (COMPLETED & VERIFIED)                          │
+│ • Full 20-view React 19 + TypeScript + Vite frontend application       │
+│ • Complete 10-stage intelligence lifecycle and closed-loop execution   │
+│ • Canonical 1,195-line deterministic demo dataset (Rajesh Mobile)      │
+│ • Slide-over Evidence Drawer with formula breakdowns and source proof  │
+│ • Action Center with 2-step confirmation modal and execution lifecycle │
+│ • Closed-loop outcome measurement (-₹4,393 → +₹7,107 surplus)         │
+│ • 6 data source connections with 7-stage live sync simulation          │
+│ • Ingestion pipeline telemetry and quality quarantine ledger           │
+│ • 10-step interactive Guided Judge Tour                                │
+│ • 6 switchable deterministic demo scenarios                            │
+│ • Production build passing cleanly (tsc -b && vite build — 0 errors)  │
+│ • Vercel deployment configuration with SPA rewrite rules               │
+├────────────────────────────────────────────────────────────────────────┤
+│ 🔵 PRODUCTION DIRECTION (PLANNED NEXT PHASES)                          │
+│ • Node.js / Python FastAPI backend microservices                       │
+│ • PostgreSQL / TimescaleDB relational and time-series persistence       │
+│ • Real Paytm Merchant API connector (OAuth2 / Webhooks)                │
+│ • Account Aggregator (NBFC-AA) bank statement feed integration         │
+│ • Tally Prime local bridge connector daemon                            │
+│ • Meta WhatsApp Cloud API integration for production messaging         │
+│ • Machine learning models for seasonal sales forecasting               │
+│ • Multi-tenant merchant authentication and workspace isolation         │
+└────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
 ## Roadmap
 
-| Phase | Focus | Status |
-|---|---|---|
-| **Phase 1** | Frontend Product Experience — complete merchant intelligence UI with deterministic demo data, 19 screens, evidence system, action center, and Paytm ecosystem showcase | ✅ **Complete** |
-| **Phase 2** | Backend Service Integration — implement `HttpMerchantService`, REST/GraphQL API, authentication, PostgreSQL persistence | 🔲 Planned |
-| **Phase 3** | Production Data Connectors — Paytm API, Account Aggregator, Tally XML, POS webhooks, WhatsApp Cloud API | 🔲 Planned |
-| **Phase 4** | Production Intelligence — real-time signal engine, opportunity scoring with historical data, action execution pipelines | 🔲 Planned |
-| **Phase 5** | Advanced ML & Merchant Copilot — seasonal demand forecasting, customer churn prediction, natural language merchant assistant | 🔲 Future |
+```
+PHASE 1A: FOUNDATION (Completed)
+  └── Frontend application architecture, fintech design system, canonical type contracts.
+
+PHASE 1B: INGESTION & PIPELINE (Completed in Prototype)
+  └── Multi-source connection hub, 7-stage sync simulation, quality quarantine logging.
+
+PHASE 1C: ANALYTICS & CLIFF RADAR (Completed in Prototype)
+  └── Rolling cashflow projections, runway calculations, deterministic signal engine.
+
+PHASE 1D: OPPORTUNITY ENGINE (Completed in Prototype)
+  └── Multi-criteria scoring, evidence calculation trees, primary record attribution.
+
+STAGE 5: ACTION ENGINE & CLOSED LOOP (Completed in Prototype)
+  └── 2-step approval guardrails, execution lifecycle simulation, outcome verification.
+
+STAGE 6: EXPERIMENTS & SCENARIOS (Completed in Prototype)
+  └── 6 switchable deterministic business scenarios, live reset controller.
+
+STAGE 7: COPILOT & MERCHANT MEMORY (Planned)
+  └── Multi-lingual voice copilot (Hindi/English), contextual merchant memory.
+
+STAGE 8: PRODUCTION HARDENING (Planned)
+  └── Backend microservices, PostgreSQL persistence, mTLS connector bridges.
+
+STAGE 9: SPECIALIZED ML (Planned)
+  └── Seasonal forecasting, supplier credit default risk modeling, customer churn prediction.
+```
+
+---
+
+## HackSprint Context
+
+*   **Project Name:** MerchantMind
+*   **Track:** FinTech & Smart Commerce
+*   **Core Problem Focus:** Eliminating cognitive overhead and cashflow vulnerability for Indian retail merchants through proactive, evidence-grounded intelligence.
+*   **Evaluation Focus:** Mathematical integrity, decision explainability, closed-loop execution, and credible production architecture.
 
 ---
 
 ## FAQ
 
-**What exactly is MerchantMind?**  
-A financial operating system that connects a merchant's fragmented data sources (payments, bank, Khata, inventory, suppliers) and turns them into evidence-backed decisions and measurable actions. Not a dashboard, not a chatbot, not a bookkeeping tool.
+**Q1: What exactly is MerchantMind?**  
+A: An intelligent financial operating system for merchants that continuously monitors business data across payments, receivables, payables, and inventory; detects risks and opportunities; explains the mathematical evidence; recommends quantified actions; and measures financial outcomes.
 
-**Who is it for?**  
-Indian retail and SMB merchants — particularly those running ₹50K–₹5L/month businesses with 2–10 data sources, customer credit (Khata), supplier obligations, and inventory to manage.
+**Q2: Who is this built for?**  
+A: Indian retail merchants and small business proprietors running ₹50,000 to ₹5,00,000/month businesses with fragmented data across UPI, cash, bank accounts, customer Khata, supplier bills, and physical stock.
 
-**Is this an accounting application?**  
-No. Accounting tools record what happened. MerchantMind detects what's about to happen, explains why, and helps the merchant act before it becomes a problem.
+**Q3: Is this a production banking integration?**  
+A: No. The current application is a frontend hackathon prototype running on deterministic mock data. The architecture is designed with a service abstraction layer (`IMerchantService`) that allows connecting production banking APIs without changing the user interface.
 
-**Is this an AI chatbot?**  
-No. MerchantMind uses deterministic intelligence — rule-based calculations over structured financial data. There is no LLM or generative AI in the current implementation. Future phases may add ML models for forecasting and trend analysis.
+**Q4: Is Paytm actually connected?**  
+A: No live Paytm merchant credentials are used. The platform demonstrates an illustrative, schema-compliant Paytm integration layer showcasing how telemetry from Paytm QR, Soundbox, and POS devices maps into canonical financial records.
 
-**Where does the financial data come from?**  
-Currently from a centralized deterministic demo dataset (`demoData.ts`). In production, data would flow from Paytm merchant APIs, bank Account Aggregator feeds, Tally connectors, POS systems, and manual CSV imports.
+**Q5: Is the demo data real?**  
+A: No. All customer names, contact numbers, GSTIN identifiers, and invoice details are synthetic demonstration data created specifically to provide a reproducible, mathematically verified demonstration.
 
-**Is Paytm actually connected?**  
-The current demo shows a simulated Paytm integration with illustrative telemetry data. The architecture is designed for production Paytm API integration. No real Paytm API credentials are used.
+**Q6: Where does AI fit into MerchantMind?**  
+A: Generative AI serves strictly as a natural language and conversational overlay. It assists with multi-lingual explanations (Hindi/English), drafting courteous WhatsApp reminders, and answering proprietor questions. The deterministic core remains authoritative for all calculations, balances, and action gating.
 
-**Is the demo using real backend data?**  
-No. The entire frontend operates on deterministic mock data. This is intentional — it ensures mathematical consistency and reproducible demos. The service abstraction layer (`IMerchantService`) allows swapping to a real backend without changing UI code.
+**Q7: Can MerchantMind execute financial actions autonomously?**  
+A: No. MerchantMind enforces human-in-the-loop governance. Every action requires explicit merchant authorization through a 2-step confirmation modal. The platform never moves funds or contacts customers silently.
 
-**How does MerchantMind avoid hallucinated recommendations?**  
-Every recommendation is derived from deterministic calculations over canonical data. The Evidence Drawer shows the exact formula, source records, and audit trail. No generative AI, no probabilistic guessing, no invented numbers.
+**Q8: What parts of the platform are deterministic?**  
+A: All financial calculations, cash deficit forecasts, Khata ageing periods, inventory turnover velocities, signal anomaly triggers, opportunity priority rankings, and outcome measurements are 100% deterministic and reproducible.
 
-**What makes the opportunity engine different?**  
-It doesn't just say "you have overdue receivables." It says "₹3,700 is trapped in 2 customer Khata ledgers (Amit: ₹2,200 / 38 days, Neha: ₹1,500 / 34 days). Recovering this via WhatsApp UPI paylinks costs low effort, has negligible relationship risk, and covers 84% of your ₹4,393 liquidity gap."
-
-**How does evidence work?**  
-Every opportunity links to an evidence record containing: what was detected, why it matters, the exact calculation breakdown with step-by-step arithmetic, links to source invoices/bills/SKUs, an audit timeline of detection events, and risk/trade-off analysis.
-
-**How would production deployment work?**  
-1. Implement `HttpMerchantService` calling a backend API
-2. Backend connects to real data sources via connectors
-3. Swap the service instance in `MerchantContext`
-4. Frontend works unchanged — same views, same components, real data
-
-**What happens after the hackathon?**  
-The service abstraction architecture means this frontend is not throwaway demo code. It's a production-ready UI layer waiting for backend integration.
-
----
-
-## Team AARAMBH CODERS
-
-**Praveen Kumar Singh**  [webdevpraveen](https://github.com/webdevpraveen)
-
-**Ankita Mishra** [ankitadotdev](https://github.com/ankitadotdev)
+**Q9: How would this scale to production?**  
+A: By implementing `HttpMerchantService` to interface with a backend microservice cluster (FastAPI/Node.js) backed by PostgreSQL/TimescaleDB. Data connectors would authenticate via OAuth2 and Account Aggregator protocols, feeding into the existing canonical data schemas.
 
 
 ---
 
-<div align="center">
+## Team - AARAMBH CODERS
 
-_Built for the merchant who deserves to know what's happening in their business — and what to do about it._
+*   **Praveen Kumar Singh** — [@webdevpraveen](https://github.com/webdevpraveen)
+*   **Ankita Mishra** — [@ankitadotdev](https://github.com/ankitadotdev)
 
-</div>
 
