@@ -72,33 +72,33 @@ Traditional dashboards show a historical revenue graph and an expense pie chart.
 MerchantMind connects disparate business feeds into a normalized canonical model, running deterministic heuristic analyzers that convert passive data into closed-loop actions.
 
 ```mermaid
-flowchart TD
-    subgraph S1["1. Connect & Ingest"]
-        A["Paytm QR / Soundbox"]
-        B["Bank Account Feeds"]
-        C["Retail POS / Ledger"]
-        D["Tally Prime / Khata"]
+graph TD
+    subgraph Step1 [1. Connect and Ingest]
+        A[Paytm QR and Soundbox]
+        B[Bank Account Feeds]
+        C[Retail POS and Ledger]
+        D[Tally Prime and Khata]
     end
 
-    subgraph S2["2. Pipeline Sanitization"]
-        E["Ingestion & SHA-256 Dedup"]
-        F["Quality Quarantine Layer"]
-        G["Schema Normalization"]
-        H["Canonical Financial Model"]
+    subgraph Step2 [2. Pipeline Sanitization]
+        E[Ingestion and SHA-256 Dedup]
+        F[Quality Quarantine Layer]
+        G[Schema Normalization]
+        H[Canonical Financial Model]
     end
 
-    subgraph S3["3. Deterministic Intelligence"]
-        I["Rolling Cashflow & Cliff Radar"]
-        J["Signal Engine (Anomalies)"]
-        K["Opportunity Engine (Scoring)"]
-        L["Evidence Drawer (Formulas & Bills)"]
+    subgraph Step3 [3. Deterministic Intelligence]
+        I[Rolling Cashflow and Cliff Radar]
+        J[Signal Engine Anomalies]
+        K[Opportunity Engine Scoring]
+        L[Evidence Drawer Formulas and Bills]
     end
 
-    subgraph S4["4. Human Control & Closed Loop"]
-        M["Ranked Action Proposals"]
-        N["Merchant 2-Step Approval Gate"]
-        O["Simulated Execution Engine"]
-        P["Closed-Loop Outcome Verification"]
+    subgraph Step4 [4. Human Control and Closed Loop]
+        M[Ranked Action Proposals]
+        N[Merchant 2-Step Approval Gate]
+        O[Simulated Execution Engine]
+        P[Closed-Loop Outcome Verification]
     end
 
     A --> E
@@ -265,25 +265,25 @@ MEASURED OUTCOME
 The current implementation is a high-fidelity frontend architecture operating on a centralized deterministic state store and a service abstraction layer.
 
 ```mermaid
-flowchart TB
-    subgraph UI["Presentation & View Layer (React 19 + Tailwind CSS 4)"]
-        W_A["World A: Public Showcase<br/>ShowcaseLanding • Architecture • PaytmEcosystem • FAQ"]
-        W_B["World B: Merchant Application<br/>CommandCenter • Cashflow • Khata • Payables • Inventory • Opportunities"]
-        MODALS["Interactive Modals & Drawers<br/>EvidenceDrawer • LiveSyncModal • GuidedTourModal • ActionGate"]
+graph TB
+    subgraph UI [Presentation and View Layer]
+        W_A[World A: Public Showcase Landing and Architecture]
+        W_B[World B: Merchant Operational Application]
+        MODALS[Interactive Modals: Evidence Drawer and Tour]
     end
 
-    subgraph STATE["State & Context Layer"]
-        CTX["MerchantContext Provider<br/>Active World • Active Tab • Active Scenario • Tour State"]
+    subgraph STATE [State and Context Layer]
+        CTX[MerchantContext Application State Provider]
     end
 
-    subgraph SVC["Service Abstraction Layer"]
-        INT["IMerchantService Interface<br/>22 Typed Domain Methods"]
-        MOCK["MockMerchantService<br/>(Current: Deterministic In-Memory Service)"]
-        HTTP["HttpMerchantService<br/>(Production Target: REST / GraphQL Client)"]
+    subgraph SVC [Service Abstraction Layer]
+        INT[IMerchantService Contract Interface]
+        MOCK[MockMerchantService In-Memory State]
+        HTTP[HttpMerchantService Future Production API]
     end
 
-    subgraph DATA["Data & Scenario Layer"]
-        DEMO["demoData.ts<br/>1,195 Lines Canonical Scenario Dataset<br/>6 Switchable Scenarios • Mathematical Consistency"]
+    subgraph DATA [Data and Scenario Layer]
+        DEMO[demoData.ts Canonical Scenario Dataset]
     end
 
     W_A --> CTX
@@ -291,44 +291,44 @@ flowchart TB
     MODALS --> CTX
     CTX --> INT
     INT --> MOCK
-    INT -. "Production Direction" .-> HTTP
+    INT -.-> HTTP
     MOCK --> DEMO
 ```
 
 ### Production Direction (Target Backend Architecture)
 
 ```mermaid
-flowchart TB
-    subgraph SOURCES["External Ecosystem"]
-        PAYTM["Paytm Merchant APIs<br/>QR / Soundbox / EDC Telemetry"]
-        AA["Account Aggregator (NBFC-AA)<br/>Bank Statement Feeds (SBI, HDFC)"]
-        POS["Retail Smart POS<br/>Real-Time Checkout Webhooks"]
-        TALLY["Tally Prime Bridge<br/>Local XML Export / Sync Daemon"]
-        WA["Meta WhatsApp Cloud API<br/>Template Messaging & Webhooks"]
+graph TB
+    subgraph SOURCES [External Ecosystem]
+        PAYTM[Paytm Merchant APIs: QR, Soundbox, EDC Telemetry]
+        AA[Account Aggregator NBFC-AA: Bank Feeds]
+        POS[Retail Smart POS: Checkout Webhooks]
+        TALLY[Tally Prime Bridge: Local XML Daemon]
+        WA[Meta WhatsApp Cloud API: Template Messaging]
     end
 
-    subgraph INGEST["Ingestion & Normalization Layer"]
-        EDGE["API Gateway & Webhook Ingestion (mTLS)"]
-        DEDUP["Deduplication Engine (SHA-256 Checksums)"]
-        QUAR["Quality Quarantine (Dirty / Malformed Rows)"]
-        NORM["Schema Normalizer (Canonical Primitives)"]
+    subgraph INGEST [Ingestion and Normalization Layer]
+        EDGE[API Gateway and Webhook Ingestion mTLS]
+        DEDUP[Deduplication Engine SHA-256 Checksums]
+        QUAR[Quality Quarantine: Dirty or Malformed Rows]
+        NORM[Schema Normalizer: Canonical Primitives]
     end
 
-    subgraph STORAGE["Authoritative Storage Tier"]
-        PG["PostgreSQL / TimescaleDB<br/>Relational Ledger & Time-Series Cashflow"]
-        AUDIT["Immutable Append-Only Audit Log"]
+    subgraph STORAGE [Authoritative Storage Tier]
+        PG[PostgreSQL and TimescaleDB Ledger]
+        AUDIT[Immutable Append-Only Audit Log]
     end
 
-    subgraph INTEL["Intelligence & Decision Engine"]
-        TIME["Time-Series Cashflow & Runway Forecaster"]
-        RADAR["Deterministic Signal Radar (Heuristics)"]
-        OPP["Opportunity Scoring & Ranking Engine"]
-        EVI["Evidence Attribution & Lineage Builder"]
-        ACT_ENG["Action Formulation & Approval Gateway"]
+    subgraph INTEL [Intelligence and Decision Engine]
+        TIME[Time-Series Cashflow and Runway Forecaster]
+        RADAR[Deterministic Signal Radar Heuristics]
+        OPP[Opportunity Scoring and Ranking Engine]
+        EVI[Evidence Attribution and Lineage Builder]
+        ACT_ENG[Action Formulation and Approval Gateway]
     end
 
-    subgraph COPILOT["Optional AI Copilot Layer (Grounded)"]
-        LLM["Grounded LLM Overlay<br/>Natural Language Explanation • Hindi/English Briefings"]
+    subgraph COPILOT [Optional AI Copilot Layer]
+        LLM[Grounded LLM Overlay: Explanations and Briefings]
     end
 
     PAYTM --> EDGE
@@ -348,8 +348,8 @@ flowchart TB
     EVI --> ACT_ENG
     ACT_ENG --> AUDIT
 
-    EVI -. "Contextual JSON" .-> LLM
-    LLM -. "Draft Copy" .-> ACT_ENG
+    EVI -.-> LLM
+    LLM -.-> ACT_ENG
 ```
 
 ---
@@ -460,16 +460,14 @@ MerchantMind strictly enforces **Human-in-the-Loop Governance**. The platform ne
 ### Action Execution Lifecycle
 
 ```mermaid
-stateDiagram-v2
-    [*] --> DRAFT: Formulated by Opportunity Engine
-    DRAFT --> PENDING_APPROVAL: Presented in Action Center
-    PENDING_APPROVAL --> APPROVED: Merchant authorizes in 2-Step Gate
-    PENDING_APPROVAL --> DISMISSED: Merchant rejects recommendation
-    APPROVED --> EXECUTING: Payload compiled for dispatch
-    EXECUTING --> SENT: Dispatched to external channel
-    SENT --> AWAITING_PAYMENT: Monitoring downstream settlement
-    AWAITING_PAYMENT --> MEASURED: Outcome verified against projection
-    MEASURED --> [*]
+graph LR
+    DRAFT[1. DRAFT: Formulated by Engine] --> PENDING[2. PENDING APPROVAL: In Action Center]
+    PENDING --> APPROVED[3. APPROVED: Authorized by Merchant]
+    PENDING --> DISMISSED[DISMISSED: Rejected by Merchant]
+    APPROVED --> EXECUTING[4. EXECUTING: Dispatch Payload Compiled]
+    EXECUTING --> SENT[5. SENT: Dispatched to Channel]
+    SENT --> AWAITING[6. AWAITING PAYMENT: Downstream Settlement]
+    AWAITING --> MEASURED[7. MEASURED: Outcome Verified vs Target]
 ```
 
 ### 2-Step Confirmation Guardrail
